@@ -1,0 +1,41 @@
+{
+  "situations": [
+    {
+      "id": "no_los",
+      "condition": "Target NOT in Line of Sight",
+      "actions": [
+        "Patrol Move toward position that grants LoS to target",
+        "If has Guided Fire/Smart/Indirect Fire: Shoot instead",
+        "Seek cover en route if possible"
+      ]
+    },
+    {
+      "id": "los_far",
+      "condition": "Target in LoS, more than 8\" away",
+      "actions": [
+        "Cautious Move to reduce distance (seek cover, try to get behind target's AoV)",
+        "Shoot at target"
+      ]
+    },
+    {
+      "id": "los_close",
+      "condition": "Target in LoS, 8\" or less away",
+      "actions": [
+        "Shoot at target",
+        "Then: Patrol Move to cover OR Shoot again"
+      ]
+    }
+  ],
+  "special_rules": [
+    "AI elements do NOT reduce stats from damage — only fill Damage Bar",
+    "AI does not need Guard to react — any AI with Action Token within 12\" can react once/turn",
+    "AI always uses Strike in Close Combat",
+    "C3-4 Walkers/Vehicles with CC upgrades always attempt Charge when in range",
+    "Fixed-Wing aircraft always Patrol Move (never Cautious)"
+  ],
+  "cannot_use": [
+    "Assisted Targeting", "Relay Coordinates", "Spotter", "Gunnery Controller",
+    "Combat Hacker", "Troop Transport", "Transport Bay", "Disposable Swarm Drones",
+    "Hauler", "Lifter", "Utility Hacker", "Grasping Manipulators"
+  ]
+}

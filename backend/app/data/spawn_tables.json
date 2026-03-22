@@ -1,0 +1,71 @@
+{
+  "spawn_trigger_threshold": 8,
+  "spawn_class_table": [
+    {"roll_min": 1, "roll_max": 3, "result": "C1"},
+    {"roll_min": 4, "roll_max": 6, "result": "C2"},
+    {"roll_min": 7, "roll_max": 8, "result": "C3"},
+    {"roll_min": 9, "roll_max": 10, "result": "C4"},
+    {"roll_min": 11, "roll_max": 12, "result": "strategic_asset"}
+  ],
+  "spawn_subtables": {
+    "C1": [
+      {"roll_min": 1, "roll_max": 4, "unit_type": "Infantry", "motive": "Trooper"},
+      {"roll_min": 5, "roll_max": 9, "unit_type": "Light Vehicle", "motive": "Vehicle"},
+      {"roll_min": 10, "roll_max": 11, "unit_type": "Light Walker", "motive": "Walker"},
+      {"roll_min": 12, "roll_max": 12, "unit_type": "Light Aircraft", "motive": "Aircraft"}
+    ],
+    "C2": [
+      {"roll_min": 1, "roll_max": 3, "unit_type": "Medium Infantry", "motive": "Trooper"},
+      {"roll_min": 4, "roll_max": 7, "unit_type": "Medium Vehicle", "motive": "Vehicle"},
+      {"roll_min": 8, "roll_max": 10, "unit_type": "Medium Walker", "motive": "Walker"},
+      {"roll_min": 11, "roll_max": 12, "unit_type": "Medium Aircraft", "motive": "Aircraft"}
+    ],
+    "C3": [
+      {"roll_min": 1, "roll_max": 2, "unit_type": "Heavy Infantry", "motive": "Trooper"},
+      {"roll_min": 3, "roll_max": 6, "unit_type": "Heavy Vehicle", "motive": "Vehicle"},
+      {"roll_min": 7, "roll_max": 10, "unit_type": "Heavy Walker", "motive": "Walker"},
+      {"roll_min": 11, "roll_max": 12, "unit_type": "Heavy Aircraft", "motive": "Aircraft"}
+    ],
+    "C4": [
+      {"roll_min": 1, "roll_max": 5, "unit_type": "Assault Vehicle", "motive": "Vehicle"},
+      {"roll_min": 6, "roll_max": 9, "unit_type": "Assault Walker", "motive": "Walker"},
+      {"roll_min": 10, "roll_max": 12, "unit_type": "Assault Aircraft", "motive": "Aircraft"}
+    ]
+  },
+  "strategic_asset_table": [
+    {"roll_min": 1, "roll_max": 1, "asset": "Airstrike F2", "description": "Airstrike with Firepower 2"},
+    {"roll_min": 2, "roll_max": 2, "asset": "Airstrike F4", "description": "Airstrike with Firepower 4"},
+    {"roll_min": 3, "roll_max": 3, "asset": "Airstrike F6", "description": "Airstrike with Firepower 6"},
+    {"roll_min": 4, "roll_max": 4, "asset": "Black Ice", "description": "Player discards 1 Interference Token"},
+    {"roll_min": 5, "roll_max": 5, "asset": "Surgical Strike", "description": "+3F to all AI elements vs target for 1 turn"},
+    {"roll_min": 6, "roll_max": 7, "asset": "Heavy Artillery Strike", "description": "Auto-hit: F3 center, F2 at 1-3\", F1 at 4-6\""},
+    {"roll_min": 8, "roll_max": 8, "asset": "Sabotage", "description": "Critical Hit vs triggering element"},
+    {"roll_min": 9, "roll_max": 10, "asset": "Repair Team", "description": "Recover 2 Damage Bar boxes on nearest damaged AI element"},
+    {"roll_min": 11, "roll_max": 12, "asset": "Reinforcements", "description": "Free spawn ignoring FC cap"}
+  ],
+  "ai_ew_cost_table": [
+    {"roll_min": 1, "roll_max": 4, "tokens": 0},
+    {"roll_min": 5, "roll_max": 7, "tokens": 1},
+    {"roll_min": 8, "roll_max": 11, "tokens": 2},
+    {"roll_min": 12, "roll_max": 12, "tokens": 3}
+  ],
+  "direction_labels": [
+    "Toward your deployment",
+    "Forward-right",
+    "Right",
+    "Back-right",
+    "Back-right (wide)",
+    "Away from deployment",
+    "Away from deployment",
+    "Back-left (wide)",
+    "Back-left",
+    "Left",
+    "Forward-left",
+    "Toward your deployment (wide)"
+  ],
+  "ai_fc_by_mission": {
+    "M0": 100, "M1": 100, "M2": 120, "M3": 120, "M4": 120,
+    "M5": 150, "M6": 100, "M7": 120, "M8": 120, "M9": 100,
+    "M10": 150, "M11": 120, "M12": 100
+  }
+}
