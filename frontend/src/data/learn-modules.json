@@ -1,0 +1,121 @@
+[
+  {
+    "id": "what-you-need",
+    "title": "What You Need to Play",
+    "order": 1,
+    "summary": "Hardwar is a 6mm sci-fi tactical miniatures game played with D12 dice, a tape measure in inches, and miniatures on bases representing combat elements. Games are played on a flat surface from 3x3' to 4x6'.",
+    "content": "You'll need about ten twelve-sided dice (D12s), a tape measure marked in inches, miniatures representing your combat elements, small counters for tokens, and data cards or paper for stats. The battlefield can be any flat surface — a table, board, or cloth. Small games use 3x3' or 4x4', larger games 4x6' or bigger. Terrain features like buildings, hills, and trees make battles more interesting.\n\nAll distances in Hardwar are measured in inches. Players may freely pre-measure distances before committing to actions. All fractional inches are rounded UP to the next whole inch.",
+    "quickplay_note": null,
+    "page_ref": 26
+  },
+  {
+    "id": "scale-and-elements",
+    "title": "Scale & Elements",
+    "order": 2,
+    "summary": "Every unit in Hardwar is called an 'element' — a single miniature on a base representing anything from a squad of troopers to a massive walker. Each element has 5 stats: M (Move), F (Firepower), D (Defence), A (Armour), and C (Class).",
+    "content": "Hardwar uses 1:285 scale (6mm) miniatures. Each miniature represents one combat element.\n\nEvery element has five stats:\n- M (Mobility): Movement in inches. Cautious = M\", Patrol = 2×M\", Rapid = 3×M\". If reduced to 0, the element is Immobilised.\n- F (Firepower): Number of D12s rolled when shooting. If reduced to 0, the element is Disarmed.\n- D (Defence): Number of D12s rolled for defence. If reduced to 0, the element is Deactivated.\n- A (Armour): Added to effective range when shot at. If reduced to 0, the element is Destroyed.\n- C (Class): Size/threat level (C1=Light, C2=Medium, C3=Heavy, C4=Siege). Determines FC cost, close combat dice, and VP value.\n\nEvery element also has a Damage Bar. Each hit fills both a stat box AND the Damage Bar. The Damage Bar cannot be restored — it's the permanent record of total damage taken.",
+    "quickplay_note": "In Quickplay, the Damage Bar equals 2× the element's Class (e.g., C1 has 2 boxes, C4 has 8 boxes).",
+    "page_ref": 27
+  },
+  {
+    "id": "the-turn",
+    "title": "The Turn",
+    "order": 3,
+    "summary": "Each turn follows a 6-step sequence: Initiative, Electronic Warfare, Deployment/Reserves, Alternate Activations, Situation Update, and Turn Summary. Players alternate activating one element at a time.",
+    "content": "The turn sequence is:\n\n1. ESTABLISH INITIATIVE — Both players secretly bid Action Tokens. Highest bidder wins and chooses who activates first.\n\n2. ELECTRONIC WARFARE — Players try to jam each other's communications using Interference Tokens and frequencies.\n\n3. DEPLOYMENT (Turn 1) / RESERVES (Turn 2+) — Loser of initiative deploys first. Reserves enter from table edge.\n\n4. ALTERNATE ACTIVATIONS — The core of the game. Players alternate activating ONE element at a time. Each element has 2 Action Tokens and must use them all. You cannot pass.\n\n5. SITUATION UPDATE — Remove Guard tokens, Call for Fire tokens, Smokescreen markers, and other temporary effects.\n\n6. TURN SUMMARY — Record casualties, count VP, check victory conditions. A commander may declare Forfeit at this point.",
+    "quickplay_note": "In Quickplay, Initiative is not bid. The player with fewer Action Tokens wins. The EW phase uses a simplified dice pool system instead of frequencies.",
+    "page_ref": 36
+  },
+  {
+    "id": "initiative",
+    "title": "Initiative",
+    "order": 4,
+    "summary": "Initiative determines who controls the pace of the game. In Core rules, players secretly bid Action Tokens — the highest bidder wins but loses those tokens. This creates a meaningful resource trade-off.",
+    "content": "At the start of each turn, both players secretly select Action Tokens to bid. Reveal simultaneously — the higher bid wins Initiative.\n\nThe winner:\n- Chooses table edge (deployment)\n- Decides deployment order\n- Decides which side activates first each turn\n\nBid tokens are REMOVED from your elements at your discretion. This is the key tension: bid high to control the game, but your elements lose actions.\n\nTIES: Open bidding one token at a time → compare remaining token counts → D12 roll.\n\nIn Solo/Co-op mode, the player always holds Initiative.",
+    "quickplay_note": "In Quickplay, there is no bidding. The player with fewer total Action Tokens wins Initiative. Ties are broken by fewer Class points in play, then D12 roll.",
+    "page_ref": 36
+  },
+  {
+    "id": "action-tokens",
+    "title": "Action Tokens & Activation",
+    "order": 5,
+    "summary": "Each element gets 2 Action Tokens per turn. When activated, it spends tokens on actions like Move, Shoot, or Guard. You must use all your tokens — even if the only option is Do Nothing.",
+    "content": "At the start of each turn, place 2 Action Tokens on each element.\n\nDuring Alternate Activations, when you activate an element:\n- Spend 1 Action Token per action (most actions cost 1, Aimed Shot costs 2)\n- Must use ALL available tokens — you cannot save them\n- Cannot pass your activation — you must activate an element\n\nWhen one side runs out of elements to activate, the other side activates all remaining elements.\n\nSpecial token interactions:\n- Chain of Command (HQ asset) generates 1 Command Token/turn that can be given as an extra Action Token to any friendly element\n- Guard saves one token as a reaction for later in the turn\n- The Initiative bid removes tokens before the turn begins",
+    "quickplay_note": null,
+    "page_ref": 37
+  },
+  {
+    "id": "actions-move",
+    "title": "Actions: Movement",
+    "order": 6,
+    "summary": "Movement is the most common action. Elements can move Cautious (M inches, gains Alert), Patrol (2×M inches, standard), or Rapid (3×M inches, requires special rule). Terrain and motive type modify what's possible.",
+    "content": "Three movement speeds:\n\nCAUTIOUS (M\") — Slow and careful. The element gains Alert status (360° Arc of Vision) for its next action in the same activation. This is critical for Guard reactions.\n\nPATROL (2×M\") — Standard movement. Can change facing freely during movement.\n\nRAPID (3×M\") — Requires the Rapid special rule. Only ONE facing change allowed (at start or end of movement). Very fast but limited maneuverability.\n\nDUCK & MOVE (Walkers only) — Move at Cautious speed with reduced silhouette. Line of Sight checked to pelvis height instead of full height.\n\nGeneral rules:\n- May pass through friendly elements freely\n- May NOT pass through enemy elements without declaring Charge\n- Moving 0\" as Cautious still counts (gains Alert)\n- Terrain types modify movement speed and may cause damage",
+    "quickplay_note": "Duck & Move is not available in Quickplay.",
+    "page_ref": 40
+  },
+  {
+    "id": "actions-shooting",
+    "title": "Actions: Shooting",
+    "order": 7,
+    "summary": "Shooting is resolved by rolling F dice against an Effective Range (distance + target's Armour + Cover). The defender rolls D dice to cancel attack dice with matching values. Remaining dice are grouped into hit pools.",
+    "content": "Shooting resolution step by step:\n\n1. DECLARE TARGET — Must be in your Line of Fire (LoS + Arc of Fire).\n\n2. CHECK EFFECTIVE RANGE — Measure base-to-base distance in inches. Add target's Armour (A) stat. Add any Cover modifiers. This total is the Effective Range.\n\n3. FIRE — Roll D12s equal to your current Firepower (F). AUGMENT DICE: any die showing 12 generates an additional bonus die.\n\n4. DEFENCE ROLL — If the attack comes from within the target's Arc of Vision, the target rolls D dice equal to their Defence (D) stat. Each defence die that exactly matches an attack die value cancels that attack die. Augment dice cancel augment dice before extra dice are rolled.\n\n5. CALCULATE HITS — Group remaining (uncancelled) attack dice into pools. Each pool whose sum ≥ Effective Range scores 1 hit. CRITICAL HIT: if a pool contains a twin pair (two dice with the same value), the attacker chooses which stat to reduce.\n\n6. APPLY DAMAGE — Each hit: fill 1 Damage Bar box + reduce 1 stat. Defender chooses which stat for normal hits. Attacker chooses for critical hits.",
+    "quickplay_note": "In Quickplay, critical hits from twin pairs add +1 extra damage point per pair (stacks).",
+    "page_ref": 41,
+    "worked_example": "Example: A C2 Walker (F4) shoots at a C2 Vehicle (A3) at 8\" through Foliage (+1 Cover).\n\nEffective Range = 8 + 3 (Armour) + 1 (Cover) = 12.\n\nAttacker rolls 4 dice: 3, 7, 7, 12 → the 12 generates an Augment Die → rolls 5.\nDice pool: 3, 7, 7, 12, 5.\n\nDefender (D2) rolls: 7, 10 → the 7 cancels one of the attacker's 7s.\nRemaining: 3, 7, 12, 5.\n\nGroup into pools: {12, 5} = 17 ≥ 12 = 1 HIT. {7, 3} = 10 < 12 = miss.\n\n1 hit applied: +1 Damage Bar, defender reduces 1 stat of their choice."
+  },
+  {
+    "id": "actions-special",
+    "title": "Actions: Special Actions",
+    "order": 8,
+    "summary": "Beyond Move and Shoot, elements can Guard (save a reaction), Charge (melee combat), Suppress areas, Reload weapons, and more. Guard is especially important — it's the only way to react during your opponent's turn.",
+    "content": "KEY SPECIAL ACTIONS:\n\nGUARD — Must be the LAST action in your activation. Places a Guard token. When an opposing element completes an action within your LoS, you may react with: Move, Shoot, Move & Shoot, Counter-Charge, Castle, or Do Nothing. Guard reactions are powerful — they let you interrupt your opponent's plans.\n\nAIMED SHOT (2 AT) — Uses your entire activation. +1F to the attack. The enemy may react BEFORE the shot resolves.\n\nSUPPRESSIVE FIRE — Roll F for maximum range. Place a marker: the F\" radius becomes Dangerous Terrain. Elements in the zone test for damage each action. Costs 1F permanently (restorable via Reload). Lasts until end of turn.\n\nRELOAD — Roll D dice vs total Damage Bar. If any die > total damage, restore 1F.\n\nMOVE & SHOOT — Move (Cautious or Patrol) + Shoot in either order. Firepower is HALVED (round up) for the shot.\n\nDO NOTHING — Remove a token. Opponents may react if they have LoS. Even this action has tactical value — it triggers opponent Guard reactions, revealing their intentions.",
+    "quickplay_note": "In Quickplay, Aimed Shot gives +2F instead of +1F. Relay Coordinates is free (no Action Token cost).",
+    "page_ref": 43
+  },
+  {
+    "id": "close-combat",
+    "title": "Close Combat",
+    "order": 9,
+    "summary": "Close combat begins with a Charge and resolves with a Combat Roll — both sides roll D12s equal to their modified C stat. Hits are scored when dice pools meet or exceed the opponent's C + A. Walkers and Troopers excel in melee.",
+    "content": "CHARGE: Declare target in LoS, move into base contact in a straight line.\n\nCOMBAT ROLL: Both sides roll D12s equal to their Class (C), modified by:\n+1C: Charging element\n+1C: Per full 4\" moved in charge\n+1C: Outside defender's LoS\n+1C: Walker or Vehicle (attacker)\n+1C: Defender if Walker or Trooper\n-1C: Opponent has Shield\n-1C: Aircraft\n\nHit threshold = opponent's C + A. Same-value dice cancel. Augment Dice (12s) apply.\n\nWINNER OPTIONS: Remain locked, break off 1\", or push opponent 1\".\nDRAW: Both break off 1\" in opposite directions.\n\nSPECIAL CC ACTIONS (if locked after Charge):\n- Strike: Basic attack\n- Break-Off: Win = disengage\n- Push (Walkers/Vehicles): Hits move combatants instead of damage\n- Trample: Win = add C to hits. Lose = Downed + no bonus\n- Topple (Walkers): Win with hits ≥ C = drop opponent\n\nCRITICAL: Disabled elements are auto-destroyed if charged. Immobilised Vehicles/Aircraft are auto-destroyed.",
+    "quickplay_note": null,
+    "page_ref": 49,
+    "worked_example": "Example: A C2 Walker charges a C1 Vehicle from 6\" away, outside the Vehicle's LoS.\n\nWalker C for Combat Roll: 2 (base) + 1 (charging) + 1 (moved 4\"+) + 1 (outside LoS) + 1 (Walker attacker) = 6 dice.\nVehicle C for Combat Roll: 1 (base) = 1 die.\n\nWalker hit threshold: Vehicle's C(1) + A = target value.\nVehicle hit threshold: Walker's C(2) + A = target value.\n\nThis is a very lopsided fight — the Walker will likely devastate the Vehicle."
+  },
+  {
+    "id": "electronic-warfare",
+    "title": "Electronic Warfare",
+    "order": 10,
+    "summary": "EW is a mind game of jamming and counter-jamming. Each side has frequencies and Interference Tokens. Successfully jamming your opponent blocks their Reserves, Strategic Assets, and special actions for the turn.",
+    "content": "CORE EW SYSTEM:\nFrequencies are numbered 1-6 (one side) and 7-12 (other side).\n\nEach turn, each player secretly:\n1. Chooses one frequency from their own set\n2. Tries to guess their opponent's frequency\n3. Spreads Interference Tokens between defending their chosen frequency and attacking the guessed enemy frequency\n\nToken sources: 1 per CHQ, 2 per RHQ, 2 per NHQ, +1 per Hacker element. May redirect Command Token for +1.\n\nSUCCESSFUL JAM: If your attacking tokens on the correct enemy frequency outnumber their defending tokens → target cannot call Reserves, use Strategic Assets, or use special actions this turn.\n\nThis is a resource allocation puzzle — spend too many tokens defending and you can't jam; spread too thin and you're vulnerable.",
+    "quickplay_note": "Quickplay EW is simplified: no frequency system. When calling Reserves or Strategic Assets, the active and blocking players build secret dice pools from Interference Tokens. Roll and compare — larger remaining pool wins. Ties go to the active player.",
+    "page_ref": 38
+  },
+  {
+    "id": "terrain",
+    "title": "Terrain",
+    "order": 11,
+    "summary": "Terrain in Hardwar affects movement, line of sight, and cover. Types range from Paved (+1M) through Impassable. Different motive types interact with terrain differently — Tracked ignores Rough, Hovercraft floats over most ground terrain.",
+    "content": "MOBILITY EFFECTS:\n- Paved: +1M. Wheeled gain Rapid. Extra turn at Rapid.\n- Plain: Default, no effect.\n- Rough: -1M. Tracked/Hovercraft/Aircraft ignore.\n- Difficult: -1M. Rapid = D12 < distance = 1 hit. No Move & Shoot. Tracked treats as Rough.\n- Hazardous: -1M. Patrol and Rapid: D12 < distance = 1 hit.\n- Dangerous: D12 < distance = 1 hit. Stacks with other terrain.\n- Treacherous: Like Dangerous but lose 1 action instead of hit.\n- Impassable: Cannot enter. Forced entry = Destroyed.\n\nCOVER:\n- Foliage: +1\" effective range per 1\" of foliage. 6\" total blocks LoS.\n- Smoke: +2\" per 1\" of smoke. 3\" blocks LoS.\n- Partial Cover (solid): Less than half obscured = +1. Half or more = +3.\n- Total Cover 6+ = target outside LoS.\n\nCOMMON TERRAIN: Buildings (~2×2×2\", Impassable/Solid, A5), Forest (Difficult/Foliage/Flammable), Ruins (Hazardous/Open Structure), Craters (Difficult + Cover).",
+    "quickplay_note": null,
+    "page_ref": 66
+  },
+  {
+    "id": "missions",
+    "title": "Combat Missions",
+    "order": 12,
+    "summary": "Hardwar includes 13 missions (M0-M12) ranging from straight elimination to convoy escorts, stealth raids, and last stands. Most last 6 turns. Each mission specifies table size, deployment, objectives, and campaign follow-ups.",
+    "content": "All standard missions last 6 turns (with noted exceptions).\n\nVICTORY POINTS: Generally +1 VP per C of enemy destroyed, -1 VP per C of own elements lost. Mission-specific bonuses add on top.\n\nFORCE CLASS: Players agree on a FC budget. Each element costs its C value. Budget Points = 1 BP per 5 FC.\n\nCOST-CUTTING: You can field up to 25% less FC than agreed, converting the difference to VP. Risk vs reward.\n\nMISSION TYPES:\n- Elimination: M0 (Pitched Battle), M1 (Patrol Encounter), M8 (Skirmish)\n- Objective: M2 (Secure Area), M4 (Dominance), M5 (Siege)\n- Asymmetric: M3 (Rescue), M10 (Last Stand), M12 (Raid)\n- Escort/Movement: M6 (Convoy), M9 (Running Battle), M11 (Pursuit)\n- Special: M7 (Friend or Foe — scattered deployment, no edges)\n\nEach mission outcome suggests follow-up missions, creating emergent campaign arcs.",
+    "quickplay_note": null,
+    "page_ref": 80
+  },
+  {
+    "id": "solo-coop",
+    "title": "Solo & Co-op AI Rules",
+    "order": 13,
+    "summary": "The solo/co-op system automates an AI opponent through spawn checks, target priority chains, and situation-based activation trees. After each player action, the AI may spawn new elements based on dice rolls and escalating probability.",
+    "content": "SPAWN SYSTEM:\nAfter each player action: roll D12 + current turn number. Total ≥ 8 = spawn (if AI FC not exhausted).\n\nSpawn Class Table (D12): 1-3=C1, 4-6=C2, 7-8=C3, 9-10=C4, 11-12=Strategic Asset.\nEach class has a subtable for unit type. Cascade down if unavailable.\n\nSPOTTING: Roll triggering element's D dice. Any 11+ = spotted → Spotting Pool (delayed entry).\n\nPLACEMENT: D12 for direction (1 = toward deployment), D12+4 for distance. Min 1\" from AI, 5\" from player.\n\nTARGET PRIORITY: (1) Triggering element → (2) Closest to objective → (3) Highest C.\n\nAI SITUATIONS:\n- Target NOT in LoS: Patrol Move toward LoS, then Shoot if able.\n- Target in LoS, >8\": Cautious Move (reduce distance, seek cover) + Shoot.\n- Target in LoS, ≤8\": Shoot + Patrol Move to cover OR Shoot again.\n\nAI SPECIAL RULES:\n- AI elements do NOT reduce stats from damage — only fill Damage Bar.\n- AI does not need Guard to react — any AI with tokens within 12\" can react once/turn.\n- AI always uses Strike in Close Combat.\n- AI gets only 5 total Interference Tokens for the entire mission.",
+    "quickplay_note": "Solo/Co-op in Quickplay uses the Quickplay turn structure and simplified EW.",
+    "page_ref": 187
+  }
+]

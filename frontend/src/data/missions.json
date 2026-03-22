@@ -1,0 +1,325 @@
+[
+  {
+    "id": "M0",
+    "name": "Pitched Battle",
+    "number": 0,
+    "table_size": "3x3' (FC 15 or less), 4x4' (FC 16-25), 4x6' (FC 25+)",
+    "ai_fc_percent": 100,
+    "duration": 6,
+    "objective_summary": "Destroy as many enemy elements as possible with minimal losses.",
+    "victory_conditions": [
+      "Side that eliminates ALL enemy forces while retaining at least one active element is the Victor regardless of VP",
+      "If no active elements remain on both sides, the battle is a draw",
+      "1 VP per C of enemy elements destroyed",
+      "-1 VP per C of own elements lost",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "Standard Initiative Bidding. Winner selects table edge (opponent takes opposite), decides deployment order (each commander deploys entire force except reserves up to 6\" from their edge), and decides which side activates first.",
+    "campaign_outcomes": [
+      "Victor picks: M7 Friend or Foe, or M11 Pursuit as Attacker"
+    ],
+    "terrain_notes": "Suggested saturation 4x4\"/sqft. Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "",
+    "reserves": "Reserves enter the table in turn 2 from their respective table edges.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 86
+  },
+  {
+    "id": "M1",
+    "name": "Patrol Encounter",
+    "number": 1,
+    "table_size": "3x3' (FC 15 or less), 4x4' (FC 16-25), 4x6' (FC 25+)",
+    "ai_fc_percent": 100,
+    "duration": 6,
+    "objective_summary": "Destroy as many enemy elements as possible with minimal losses after an unexpected encounter during patrol.",
+    "victory_conditions": [
+      "Side that eliminates ALL enemy forces while retaining at least one active element is the Victor regardless of VP",
+      "If no active elements remain on both sides, the battle is a draw",
+      "1 VP per C of enemy elements destroyed",
+      "-1 VP per C of own elements lost",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "Each commander divides FC into two equal halves. First half composed of lightest Class elements; second 'heavy' half placed in Reserves. If halves can't be equal, heaviest element in first half transfers to second. Initiative Bidding: winner selects long table edge, decides deployment order (each force deploys up to 24\" but no closer than 12\" from own edge), decides which side activates first.",
+    "campaign_outcomes": [
+      "Victor picks: M4 Dominance, or M9 Running Battle"
+    ],
+    "terrain_notes": "Suggested saturation 4x4\"/sqft. Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "",
+    "reserves": "Reserves enter the table in turn 2 from their respective table edges.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 88
+  },
+  {
+    "id": "M2",
+    "name": "Secure Area",
+    "number": 2,
+    "table_size": "3x3' (FC 20 or less), 4x4' (FC 21-35), 6x4' (FC 35+)",
+    "ai_fc_percent": 120,
+    "duration": 6,
+    "objective_summary": "Secure as many objective tokens as possible before the battle ends.",
+    "victory_conditions": [
+      "Side that eliminates ALL enemy forces while retaining at least one active element is the Victor regardless of VP",
+      "If no active elements remain on both sides, the battle is a draw",
+      "5 VP per secured objective (friendly element within 3\" of objective center, no enemy within 3\", at end of last turn)",
+      "Contested objective (both sides within 3\") scores nothing",
+      "1 VP per C of enemy elements destroyed",
+      "-1 VP per C of own elements lost",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "Standard Initiative Bidding. Winner selects table edge (opponent takes opposite), decides deployment order (each force deploys up to 12\" from their edge), decides which side activates first.",
+    "campaign_outcomes": [
+      "Victor picks: M5 Siege as Attacker, or M12 Raid as Attacker"
+    ],
+    "terrain_notes": "Heavy terrain saturation 6x6\"/sqft, preferably buildings/ruins. Commanders place alternately. For every 10 FC (rounded up), each commander receives one objective token placed in no man's land on a terrain feature with footprint no smaller than 2x2'.",
+    "special_rules": "AI solo: AI places objective tokens via spawn rules using center of table as trigger point.",
+    "reserves": "Reserves enter the table in turn 2 from their respective table edges.",
+    "budget": "Standard 1 BP/5 C allowance. Deep Deployment, Airstrike, Heavy Artillery Strike, and Ambush assets cannot be purchased.",
+    "page_ref": 90
+  },
+  {
+    "id": "M3",
+    "name": "Rescue",
+    "number": 3,
+    "table_size": "3x3' (FC 20 or less), 4x4' (FC 21-35), 6x4' (FC 35+)",
+    "ai_fc_percent": 120,
+    "duration": 6,
+    "objective_summary": "Attacker must destroy or disable the Defender's asset. Defender must evacuate the asset off their table edge.",
+    "victory_conditions": [
+      "If Attacker destroys/disables asset: Attacker gains 10 VP and battle ends immediately",
+      "If Defender's asset leaves via Defender's table edge: Defender gains 10 VP and battle ends immediately",
+      "1 VP per C of enemy elements destroyed (Attacker)",
+      "-1 VP per C of own elements lost including asset (Defender)",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "Player with lower Action Token count is Attacker. Attacker selects table edge; Defender takes opposite. Defender picks one non-CHQ element as asset and places it within 6\" of table center on Attacker's half. Attacker places elements up to double the asset's Class within 6\" of center on Defender's half. Initiative bid for remaining forces: winner decides deployment order (remaining force up to 6\" from table edge) and which side activates first.",
+    "campaign_outcomes": [
+      "Attacker wins: M0 Pitched Battle, or M7 Skirmish",
+      "Defender wins: M4 Dominance, or M11 Pursuit as Attacker"
+    ],
+    "terrain_notes": "Suggested saturation 4x4\"/sqft. Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "Battle ends immediately when Defender's asset is eliminated or removed from table. AI solo: Attacker/Defender determined by dice roll, not Action Tokens. Player picks AI element as asset.",
+    "reserves": "Ground reserves enter via respective deployment zones and Deep Deployment only. Aircraft can enter from any table edge.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 92
+  },
+  {
+    "id": "M4",
+    "name": "Dominance",
+    "number": 4,
+    "table_size": "3x3' (FC 20 or less), 4x4' (FC 21-35), 6x4' (FC 35+)",
+    "ai_fc_percent": 120,
+    "duration": 6,
+    "objective_summary": "Distribute more elements across the battlefield than the opponent by dominating table quarters.",
+    "victory_conditions": [
+      "At end of turn 6, divide battlefield into 4 quarters",
+      "Each element in a quarter is worth 1 + its Class",
+      "Commander with more points in a quarter dominates it",
+      "Equal points means neither dominates",
+      "Commander dominating more quarters wins",
+      "If equal quarters dominated, whoever dominates more quarters on opponent's side wins",
+      "If still equal, draw"
+    ],
+    "deployment_rules": "Standard Initiative Bidding. Winner selects table edge (6\" deep deployment zones), decides who begins deploying (one element at a time, alternating). Decides which side activates first. Aircraft deploy after all other elements. Either commander may declare 'the last deployment' — opponent may then deploy one more element. All undeployed elements go to Reserve.",
+    "campaign_outcomes": [
+      "Victor picks: M7 Friend or Foe, or M2 Secure Area"
+    ],
+    "terrain_notes": "Suggested saturation 4x4\"/sqft. Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "",
+    "reserves": "Reserves enter the table in turn 3 from their respective table edges.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 94
+  },
+  {
+    "id": "M5",
+    "name": "Siege",
+    "number": 5,
+    "table_size": "4x4' (regardless of force size)",
+    "ai_fc_percent": 150,
+    "duration": 6,
+    "objective_summary": "Attacker must seize the central building. Defender must hold it.",
+    "victory_conditions": [
+      "If Attacker has an element inside the central building at end of turn 6 and Defender has none inside, Attacker wins",
+      "Any other outcome is a Defender victory",
+      "Standard VP for kills: 1 C destroyed = 1 VP"
+    ],
+    "deployment_rules": "Defender deploys half FC (rounded up) anywhere on the battlefield. Attacker selects 3 table edges and deploys entire force (except Aircraft) up to 3\" from any of those edges. Attacker Aircraft begin in Reserve. Defender decides which side activates first.",
+    "campaign_outcomes": [
+      "Attacker wins: M11 Pursuit as Attacker, or M10 Last Stand as Attacker",
+      "Defender wins: M2 Secure Area, or M1 Patrol Encounter"
+    ],
+    "terrain_notes": "Defender places one terrain piece (building or equivalent) at center of battlefield. Remaining terrain saturation 3x3\"/sqft, placed by Defender. Attacker may then move up to 2 terrain pieces (not the central one).",
+    "special_rules": "AI solo: Attacker/Defender by dice roll. If AI is Defender, generate half FC to deploy via spawn tables. If AI is Attacker, generate full FC force via spawn tables (rerolling Strategic Assets).",
+    "reserves": "Defender's reserves enter in turn 3 from the fourth table edge.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 96
+  },
+  {
+    "id": "M6",
+    "name": "Convoy",
+    "number": 6,
+    "table_size": "6x4' (regardless of force size)",
+    "ai_fc_percent": 100,
+    "duration": 6,
+    "objective_summary": "Defender escorts unarmed convoy elements diagonally across the table. Attacker tries to destroy them.",
+    "victory_conditions": [
+      "If more than half of convoy FC safely exits the battlefield, Defender wins",
+      "Defender earns 2 VP per FC point above half of convoy FC rescued",
+      "If more than half of convoy FC is destroyed/captured/immobilised, Attacker wins",
+      "Attacker earns 2 VP per destroyed FC point above half of convoy FC"
+    ],
+    "deployment_rules": "Defender places convoy elements up to 12\" from one end of the Convoy Road. Attacker deploys up to half FC split between two 12\" square deployment zones in non-road corners. Defender deploys up to full FC anywhere except Attacker zones, no closer than 6\" from closest enemy.",
+    "campaign_outcomes": [
+      "Attacker wins: M3 Rescue as Attacker, or M10 Last Stand as Attacker",
+      "Defender wins: M5 Siege as Attacker, or M12 Raid as Attacker"
+    ],
+    "terrain_notes": "Diagonal Convoy Road 3\" wide on both sides, treated as Paved (Wheeled Vehicles including Convoy are Rapid if start and end within 6\" of strip). Saturation 4x4\"/sqft. Defender places terrain no closer than 1\" to road. Attacker may move 2 pieces (not on Road).",
+    "special_rules": "Convoy elements: 1 FC per 4 FC of agreed force. Unarmed vehicles (no F stat). Receive Action Tokens normally but may only Move or Do Nothing. Mission ends when all convoy elements are destroyed or have left. AI solo: If AI is Defender, generate full FC force via spawn tables (rerolling Strategic Assets).",
+    "reserves": "Attacker remainder in Reserve. Defender may only keep Aircraft in Reserve; Defender Aircraft enter from corners intersecting Convoy Road.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 98
+  },
+  {
+    "id": "M7",
+    "name": "Friend or Foe",
+    "number": 7,
+    "table_size": "3x3' (FC 15 or less), 4x4' (FC 16-25), 4x6' (FC 25+)",
+    "ai_fc_percent": 120,
+    "duration": 6,
+    "objective_summary": "Scattered forces fight in small clusters with no defined front line. Rally and destroy the enemy.",
+    "victory_conditions": [
+      "Side that eliminates ALL enemy forces while retaining at least one active element is the Victor regardless of VP",
+      "If no active elements remain on both sides, the battle is a draw",
+      "1 VP per C of enemy elements destroyed",
+      "-1 VP per C of own elements lost",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "All forces must deploy; no Reserves. Initiative Bidding: winner decides deployment order (entire force interchangeably, 1 element at a time) and which side activates first. Elements deployed anywhere on the battlefield, at least 6\" apart from any other friendly or opposing element. No entry edges.",
+    "campaign_outcomes": [
+      "Victor picks: M1 Patrol Encounter, or M2 Secure Area"
+    ],
+    "terrain_notes": "Heavy terrain saturation 6x6\"/sqft. Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "",
+    "reserves": "No Reserves available.",
+    "budget": "Standard 1 BP/5 C allowance. No restrictions on spending.",
+    "page_ref": 100
+  },
+  {
+    "id": "M8",
+    "name": "Skirmish",
+    "number": 8,
+    "table_size": "3x3' (FC 20 or less), 4x4' (FC 20+)",
+    "ai_fc_percent": 120,
+    "duration": 6,
+    "objective_summary": "Attacker harasses with half-strength force for maximum damage then withdraws. Defender tries to eliminate skirmishers.",
+    "victory_conditions": [
+      "Attacker: 2 VP per C of enemy Destroyed, 1 VP per C of enemy Immobilised, -1 VP per C of own Destroyed/Immobilised",
+      "Defender: 1 VP per C of enemy Destroyed/Immobilised, -1 VP per C of own lost",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "No Reserves. Defender picks a 12\" wide central strip (vertical or horizontal). Defender deploys first in that strip. Attacker deploys second from table edges parallel to Defender zone, within 6\" from edge (one or both zones). Initiative Bidding: winner decides which side activates first.",
+    "campaign_outcomes": [
+      "Attacker wins: M4 Dominance, or M11 Raid as Attacker",
+      "Defender wins: M0 Pitched Battle, or M10 Last Stand as Attacker"
+    ],
+    "terrain_notes": "Suggested saturation 3x3\"/sqft. Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "Attacker receives only half FC allowance. Defender receives full FC. Attacker withdrawal: Attacker can withdraw at any moment, keeping gathered VP. Each element moved off-board is safely withdrawn with no penalties. Battle ends early if all Attacker forces withdraw.",
+    "reserves": "No Reserves available.",
+    "budget": "Standard 1 BP/5 C allowance. Attacker's Budget proportionate to halved FC.",
+    "page_ref": 102
+  },
+  {
+    "id": "M9",
+    "name": "Running Battle",
+    "number": 9,
+    "table_size": "6x4' (fixed)",
+    "ai_fc_percent": 100,
+    "duration": 6,
+    "objective_summary": "Both forces race toward the Exit Edge. Get your elements across while preventing the enemy from doing the same.",
+    "victory_conditions": [
+      "1 VP per C of friendly elements beyond the Exit Edge at end of turn 6",
+      "1 VP per C of enemy elements destroyed or immobilised",
+      "Side with more VP is the Victor; draw means no victor"
+    ],
+    "deployment_rules": "Initiative Bidding: winner selects a corner deployment zone on one short edge; opponent takes opposite corner on same short edge. Opposite long edge is the Exit Edge. Winner decides deployment order and which side activates first.",
+    "campaign_outcomes": [
+      "Victor picks: M2 Secure Area, or M5 Siege as Defender"
+    ],
+    "terrain_notes": "Suggested saturation 2x2\"/sqft (light terrain). Both commanders agree on terrain quantity/size. Each takes half and places alternately.",
+    "special_rules": "",
+    "reserves": "No Reserves available.",
+    "budget": "Standard 1 BP/5 C allowance.",
+    "page_ref": 104
+  },
+  {
+    "id": "M10",
+    "name": "Last Stand",
+    "number": 10,
+    "table_size": "3x3' (FC 20 or less), 4x4' (FC 20+)",
+    "ai_fc_percent": 150,
+    "duration": 6,
+    "objective_summary": "Defender (half FC) is surrounded and must survive until end of battle. Attacker (full FC) must destroy all Defenders.",
+    "victory_conditions": [
+      "If at least one surviving able-to-fight Defender element remains at end of turn 6, Defender wins",
+      "If no surviving able-to-fight Defender elements remain, Attacker wins"
+    ],
+    "deployment_rules": "Defender receives half FC; Attacker receives full FC. Attacker deploys first up to 6\" from any/all table edges (must deploy half or more FC; remainder in Reserve). Defender deploys second, all forces within 6\" of table center. All defending ground elements start with Dig In! (lost if element moves 1\"+). Defender decides which side activates first.",
+    "campaign_outcomes": [
+      "Attacker wins: M8 Skirmish, or M2 Secure Area",
+      "Defender wins: M3 Rescue as Attacker, or M5 Siege as Defender"
+    ],
+    "terrain_notes": "Suggested saturation 4x4\"/sqft. Defender places one terrain piece at center. Defender places remaining terrain. Attacker may move up to 2 pieces (not central one).",
+    "special_rules": "Defender starts at half FC. All defending ground elements benefit from Dig In! at start (lost if they move). AI solo: If AI is Defender, generate full FC force via spawn tables (rerolling Strategic Assets).",
+    "reserves": "Reserves enter the table in turn 2 from their respective table edges.",
+    "budget": "Defender: 1 BP per 3 FC. Attacker: 1 BP per 6 FC.",
+    "page_ref": 106
+  },
+  {
+    "id": "M11",
+    "name": "Pursuit",
+    "number": 11,
+    "table_size": "6x4' (regardless of force size)",
+    "ai_fc_percent": 120,
+    "duration": 6,
+    "objective_summary": "Defender (half FC) flees across the table to the Exit Edge. Attacker (full FC) chases and tries to destroy them.",
+    "victory_conditions": [
+      "If no Defender elements reach Exit Edge by end of turn 6: Attacker wins, gains Defender's FC in VP x2",
+      "If at least one Defender element exits: Defender gains C+10 VP and wins regardless of VP score",
+      "Each additional Defender element rescued: worth its C in VP",
+      "Each Attacking element destroyed: worth its C in VP for Defender",
+      "Each Defending element destroyed: Attacker gains its C in VP regardless of outcome"
+    ],
+    "deployment_rules": "Defender receives half FC; Attacker receives full FC. Defender picks a short edge as deployment zone (up to 6\" from edge), deploys all elements, then each element may perform one free Move action. Attacker deploys on edge of same deployment area, must deploy at least half FC. Remainder in Reserve entering via one or both long edges. Defender decides who activates first.",
+    "campaign_outcomes": [
+      "Attacker wins: M10 Last Stand as Attacker, or M8 Skirmish as Attacker",
+      "Defender wins: M3 Rescue as Attacker, or M1 Patrol Encounter"
+    ],
+    "terrain_notes": "Suggested saturation 3x3\"/sqft. Both commanders agree on terrain. Each takes half and places alternately. Defender may then move up to 2 terrain pieces.",
+    "special_rules": "Defender starts at half FC with free Move action after deployment. Defender receives free F4 Airstrike and F3 Artillery Strike Strategic assets. AI solo: If AI is Defender, generate half FC force via spawn tables. If player is Defender, deployment Move actions can trigger spawning (+1 to spawn dice).",
+    "reserves": "Reserves enter the table in turn 2 from their respective table edges. Attacker reserves enter via one or both long edges.",
+    "budget": "Defender: 1 BP per 5 FC. Attacker: 1 BP per 5 FC. Defender also receives free F4 Airstrike and F3 Artillery Strike.",
+    "page_ref": 108
+  },
+  {
+    "id": "M12",
+    "name": "Raid",
+    "number": 12,
+    "table_size": "4x4' (fixed)",
+    "ai_fc_percent": 100,
+    "duration": 0,
+    "objective_summary": "Attacker infiltrates with small elite force (max 10 FC) to reach a hidden objective. Defender (4 FC per 1 Attacker FC) guards the base.",
+    "victory_conditions": [
+      "Side that achieves its objective is declared winner and gains 10 VP bonus",
+      "VP for destroyed elements are NOT issued to either side"
+    ],
+    "deployment_rules": "Attacker places 3 objective markers (2 dummies, 1 real) within 6\" of table center, no closer than 6\" from each other, next to or within terrain. Defender deploys all forces within the central 2x2' Base Zone (no Reserves). All Defender forces start in Guard mode. Defender Aircraft start landed. Attacker deploys within 6\" from any/all table edges. Defender activates first.",
+    "campaign_outcomes": [
+      "Attacker wins: M9 Running Battle, or M6 Convoy as Defender",
+      "Defender wins: M11 Pursuit as Defender, or M4 Dominance"
+    ],
+    "terrain_notes": "Suggested saturation 4x4\"/sqft, buildings and fortifications preferred. Defender sets up terrain within the central 2x2' Base Zone. Largest element placed at center.",
+    "special_rules": "No turn limit — ends when Attacker reaches objective or Attacking force is wiped out. Attacker max 10 FC; Defender gets 4 FC per 1 Attacker FC. Attacking elements treated as in Ambush while moving at Cautious speed; detectable only within Cx2\" by Defenders. Revealed by non-Move/Guard/Do Nothing actions or moving faster than Cautious. Defender elements start with 1 action per turn (Move at Patrol or Guard only) until they spot an Attacker, then gain full 2 actions. Defender Aircraft may only take off after first Attacker is spotted. AI solo: If AI is Defender, generate full FC force via spawn tables (rerolling Strategic Assets). AI places objective tokens via spawn rules with center as trigger point.",
+    "reserves": "No Reserves for Defender. Attacker has no explicit reserves.",
+    "budget": "Attacker: 1 BP per 2 FC. Defender: 1 BP per 6 FC.",
+    "page_ref": 110
+  }
+]

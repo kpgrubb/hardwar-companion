@@ -1,0 +1,106 @@
+[
+  {
+    "id": "turn-order",
+    "title": "Turn Sequence",
+    "ruleset": "core",
+    "items": [
+      "1. Establish Initiative — Secret bid of Action Tokens. Highest bidder wins. Ties: open bid → compare remaining tokens → D12 roll.",
+      "2. Electronic Warfare — Choose frequency (1-6 or 7-12). Spread Interference Tokens between defending own frequency and jamming opponent's.",
+      "3. Deployment (Turn 1) / Reserves (Turn 2+) — Loser deploys first. Reserves enter from table edge, costs 1 Action Token.",
+      "4. Alternate Activations — Players alternate activating ONE element. Each element has 2 Action Tokens. Must use all actions.",
+      "5. Situation Update — Remove Guard tokens, Call for Fire tokens, Smokescreen tokens, and other turn-duration effects.",
+      "6. Turn Summary — Record casualties, update VP, check victory conditions. Commander may declare Forfeit."
+    ],
+    "page_ref": 36
+  },
+  {
+    "id": "turn-order-quickplay",
+    "title": "Turn Sequence (Quickplay)",
+    "ruleset": "quickplay",
+    "items": [
+      "1. Establish Initiative — Player with fewer Action Tokens wins. Ties: fewer C in play → D12 roll.",
+      "2. Electronic Warfare — Simplified: when calling Reserves/Strategic Assets, build secret dice pools from Interference Tokens. Roll and compare.",
+      "3. Deployment / Reserves — Same as Core.",
+      "4. Alternate Activations — Same as Core.",
+      "5. Situation Update — Same as Core.",
+      "6. Turn Summary — Same as Core."
+    ],
+    "page_ref": 185
+  },
+  {
+    "id": "actions",
+    "title": "Actions (1 AT each unless noted)",
+    "ruleset": "both",
+    "items": [
+      "MOVE — Cautious (M\"), Patrol (2×M\"), Rapid (3×M\", requires special rule). Cautious grants Alert (360° AoV).",
+      "SHOOT — Roll F dice. Defender rolls D dice (matching cancels). Group remaining into pools ≥ Effective Range = 1 hit each.",
+      "MOVE & SHOOT — Move (Cautious/Patrol) + Shoot in either order. F is halved (round up).",
+      "AIMED SHOT (2 AT) — +1F (+2F in Quickplay). Enemy may react before shot resolves.",
+      "GUARD — Must be last action. Saves reaction for later: Move, Shoot, Move & Shoot, Counter-Charge, Castle, Do Nothing.",
+      "CHARGE — Move into base contact with enemy. Combat Roll: both roll C dice. Threshold = opponent's C + A.",
+      "SUPPRESSIVE FIRE — Roll F for max range. Creates F\" radius Dangerous Terrain. Costs 1F permanently (restore via Reload).",
+      "AREA BOMBARDMENT — Like Suppressive Fire for Indirect Fire weapons. No LoS required.",
+      "RELAY COORDINATES — Mark target in LoS for Indirect Fire. Free in Quickplay.",
+      "RELOAD — Roll D dice vs Damage Bar total. Any die > total damage = success (restore 1F).",
+      "EMBARK / DISEMBARK — Base contact with transport. Ends action.",
+      "COMBAT DROP — Drop element from Aircraft. Controlled Crash (damage halved).",
+      "DO NOTHING — Remove token. Opponents with LoS may react."
+    ],
+    "page_ref": 40
+  },
+  {
+    "id": "shooting-steps",
+    "title": "Shooting Resolution",
+    "ruleset": "both",
+    "items": [
+      "1. DECLARE TARGET — Must be in Line of Fire (LoS + AoF).",
+      "2. CHECK RANGE — Measure base-to-base. Add target's Armour (A) + Cover modifiers = Effective Range.",
+      "3. FIRE — Roll D12s equal to current F. Any 12 = Augment Die (extra die).",
+      "4. DEFENCE ROLL — If attack from within target's AoV, target rolls D dice. Matching values cancel attack dice. Augment dice cancel augment dice first.",
+      "5. CALCULATE HITS — Group remaining attack dice into pools. Each pool whose sum ≥ Effective Range = 1 hit. Twin pair in a pool = Critical Hit.",
+      "6. APPLY DAMAGE — Each hit: +1 to Damage Bar + reduce 1 stat (defender chooses, attacker chooses for criticals)."
+    ],
+    "page_ref": 41
+  },
+  {
+    "id": "initiative",
+    "title": "Initiative Resolution",
+    "ruleset": "core",
+    "items": [
+      "Both players secretly bid Action Tokens from their pool (default 2 per element).",
+      "Reveal simultaneously. Highest bid wins Initiative.",
+      "Bid tokens are removed from elements at player's discretion.",
+      "Ties: open bidding one token at a time → compare remaining tokens → D12 roll.",
+      "Winner: chooses table edge, deployment order, and which side activates first."
+    ],
+    "page_ref": 36
+  },
+  {
+    "id": "spawn-check",
+    "title": "Solo/Co-op Spawn Check",
+    "ruleset": "both",
+    "items": [
+      "After each player action, roll D12 + current turn number.",
+      "Total 1–7: No spawn.",
+      "Total 8+: Spawn sequence begins (if AI FC not exhausted).",
+      "SPAWN CLASS: D12 → 1-3=C1, 4-6=C2, 7-8=C3, 9-10=C4, 11-12=Strategic Asset.",
+      "SUBTABLE: Roll D12 on class subtable for unit type. Cascade down if unavailable.",
+      "SPOTTING: Roll triggering element's D dice. Any 11+ = SPOTTED (→ Spotting Pool).",
+      "PLACEMENT: D12 for direction (1=toward deployment). Distance: D12+4 inches.",
+      "CONSTRAINTS: Min 1\" from AI elements, 5\" from player elements."
+    ],
+    "page_ref": 188
+  },
+  {
+    "id": "target-priority",
+    "title": "AI Target Priority",
+    "ruleset": "both",
+    "items": [
+      "1. Element that triggered the AI spawn.",
+      "2. Closest player element to an objective.",
+      "3. Player element with highest Class (C).",
+      "TIEBREAKERS: C3-4 AI targets highest C in LoS. C1-2 AI targets lowest C in LoS. Then most damaged. Then player picks."
+    ],
+    "page_ref": 187
+  }
+]

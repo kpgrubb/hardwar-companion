@@ -1,0 +1,839 @@
+[
+  {
+    "term": "M (Move)",
+    "aliases": ["m", "M", "move", "Move", "MOVE", "movement"],
+    "category": "stat",
+    "definition_core": "Movement stat measured in inches. Cautious speed = M\", Patrol speed = 2xM\", Rapid speed = 3xM\". If reduced to 0, the element becomes Immobilised.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "F (Firepower)",
+    "aliases": ["f", "F", "firepower", "Firepower", "FIREPOWER"],
+    "category": "stat",
+    "definition_core": "Number of D12s rolled when shooting. If reduced to 0, the element becomes Disabled (Disarmed) and cannot attack.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "D (Defence)",
+    "aliases": ["d", "D", "defence", "Defence", "DEFENCE", "defense", "Defense"],
+    "category": "stat",
+    "definition_core": "Number of D12s rolled to cancel incoming hits. If reduced to 0, the element becomes Deactivated and cannot defend, use special actions, or react.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "A (Armour)",
+    "aliases": ["a", "A", "armour", "Armour", "ARMOUR", "armor", "Armor"],
+    "category": "stat",
+    "definition_core": "Added to the effective range when the element is shot at, making it harder to hit. If reduced to 0, the element is Destroyed and removed from play.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "C (Class)",
+    "aliases": ["c", "C", "class", "Class", "CLASS"],
+    "category": "stat",
+    "definition_core": "Size and threat rating from C1 to C4. Determines Force Class cost, number of Close Combat dice, and Victory Point value when destroyed.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "FC (Force Class)",
+    "aliases": ["fc", "FC", "force class", "Force Class", "FORCE CLASS"],
+    "category": "stat",
+    "definition_core": "Total budget for building a force. Each element added to the force costs its Class (C) value against this budget.",
+    "definition_quickplay": null,
+    "page_ref_core": 80,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "BP (Budget Points)",
+    "aliases": ["bp", "BP", "budget points", "Budget Points", "BUDGET POINTS"],
+    "category": "stat",
+    "definition_core": "Mission economy currency used to purchase assets, reinforcements, and other in-mission resources. Calculated as 1 BP per 5 FC.",
+    "definition_quickplay": null,
+    "page_ref_core": 123,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "VP (Victory Points)",
+    "aliases": ["vp", "VP", "victory points", "Victory Points", "VICTORY POINTS"],
+    "category": "stat",
+    "definition_core": "Score used to determine the winner. Generally +1 VP per Class value of enemy elements destroyed, -1 VP per Class value of own elements lost.",
+    "definition_quickplay": null,
+    "page_ref_core": 81,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "LoS (Line of Sight)",
+    "aliases": ["los", "LoS", "LOS", "line of sight", "Line of Sight", "LINE OF SIGHT"],
+    "category": "stat",
+    "definition_core": "A straight line drawn from any part of the acting element that falls within its Arc of Vision to any part of the target. Required to see and interact with other elements.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "LoF (Line of Fire)",
+    "aliases": ["lof", "LoF", "LOF", "line of fire", "Line of Fire", "LINE OF FIRE"],
+    "category": "stat",
+    "definition_core": "To shoot a target, it must be within both Line of Sight AND Arc of Fire. LoF combines both requirements for a valid attack.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "AoV (Arc of Vision)",
+    "aliases": ["aov", "AoV", "AOV", "arc of vision", "Arc of Vision", "ARC OF VISION"],
+    "category": "stat",
+    "definition_core": "Default 180-degree forward arc determining what an element can see. Elements with the Alert special rule have 360-degree AoV.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "AoF (Arc of Fire)",
+    "aliases": ["aof", "AoF", "AOF", "arc of fire", "Arc of Fire", "ARC OF FIRE"],
+    "category": "stat",
+    "definition_core": "Default 180-degree forward arc determining where an element can shoot. Fixed-Wing aircraft have a reduced 90-degree Arc of Fire.",
+    "definition_quickplay": null,
+    "page_ref_core": 27,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "LAZ (Low Altitude Zone)",
+    "aliases": ["laz", "LAZ", "low altitude zone", "Low Altitude Zone", "LOW ALTITUDE ZONE"],
+    "category": "stat",
+    "definition_core": "The airspace extending from ground level to 12 inches above the tallest piece of terrain on the battlefield. Aircraft operating in the LAZ interact with ground elements and terrain.",
+    "definition_quickplay": null,
+    "page_ref_core": 59,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Move",
+    "aliases": ["move action", "Move Action", "MOVE ACTION"],
+    "category": "action",
+    "definition_core": "Basic movement action. Element moves at Cautious (M\"), Patrol (2xM\"), or Rapid (3xM\") speed depending on the movement mode chosen. Costs 1 Action Token.",
+    "definition_quickplay": null,
+    "page_ref_core": 40,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Shoot",
+    "aliases": ["shoot", "Shoot", "SHOOT", "shooting"],
+    "category": "action",
+    "definition_core": "Roll Firepower (F) dice. Each die must equal or exceed the Effective Range (distance + target Armour + Cover) to score a hit. Defender rolls Defence (D) dice to cancel hits.",
+    "definition_quickplay": null,
+    "page_ref_core": 41,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Aimed Shot",
+    "aliases": ["aimed shot", "Aimed Shot", "AIMED SHOT", "aimed"],
+    "category": "action",
+    "definition_core": "Costs 2 Action Tokens. Grants +1F for the attack. The targeted enemy element may react before the shot is resolved.",
+    "definition_quickplay": "Grants +2F instead of +1F.",
+    "page_ref_core": 42,
+    "page_ref_quickplay": 185
+  },
+  {
+    "term": "Move & Shoot",
+    "aliases": ["move & shoot", "Move & Shoot", "MOVE & SHOOT", "move and shoot", "Move and Shoot"],
+    "category": "action",
+    "definition_core": "Perform a Move and a Shoot in either order within a single action. Firepower is halved (rounded up) for the shooting portion. Cannot be performed in Difficult terrain.",
+    "definition_quickplay": null,
+    "page_ref_core": 42,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Guard",
+    "aliases": ["guard", "Guard", "GUARD", "guard action", "overwatch"],
+    "category": "action",
+    "definition_core": "Must be the last action taken in the element's activation. Places a Guard token on the element, saving its reaction for the opponent's turn. The element can then react to enemy actions within Line of Sight.",
+    "definition_quickplay": null,
+    "page_ref_core": 44,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Charge",
+    "aliases": ["charge", "Charge", "CHARGE", "close combat", "melee"],
+    "category": "action",
+    "definition_core": "Move into base contact with an enemy element to initiate close combat. Both elements roll a number of D12s equal to their Class (C) value. Highest individual die wins; loser takes hits equal to the difference in successes.",
+    "definition_quickplay": null,
+    "page_ref_core": 49,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Suppressive Fire",
+    "aliases": ["suppressive fire", "Suppressive Fire", "SUPPRESSIVE FIRE", "suppression"],
+    "category": "action",
+    "definition_core": "Roll F dice to determine range. Creates a Dangerous Terrain zone with a radius equal to F inches centered on the target point. Permanently costs 1F from the firing element (Damage Bar increases by 1).",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Area Bombardment",
+    "aliases": ["area bombardment", "Area Bombardment", "AREA BOMBARDMENT", "bombardment"],
+    "category": "action",
+    "definition_core": "Functions like Suppressive Fire but uses Indirect Fire rules. Does not require Line of Sight to the target area. Requires a spotter or relayed coordinates.",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Relay Coordinates",
+    "aliases": ["relay coordinates", "Relay Coordinates", "RELAY COORDINATES", "relay"],
+    "category": "action",
+    "definition_core": "Mark a target point within Line of Sight for use by elements with Indirect Fire. The marked point can then be targeted without direct LoS by the firing element.",
+    "definition_quickplay": "This action is Free (costs no Action Token).",
+    "page_ref_core": 43,
+    "page_ref_quickplay": 185
+  },
+  {
+    "term": "Reload",
+    "aliases": ["reload", "Reload", "RELOAD"],
+    "category": "action",
+    "definition_core": "Roll D (Defence) dice against the element's current Damage Bar total. Any die that rolls higher than the Damage Bar total restores 1 Firepower (F).",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Do Nothing",
+    "aliases": ["do nothing", "Do Nothing", "DO NOTHING"],
+    "category": "action",
+    "definition_core": "The element takes no action and removes its activation token. Opponent elements may react to this action as normal.",
+    "definition_quickplay": null,
+    "page_ref_core": 45,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Embark",
+    "aliases": ["embark", "Embark", "EMBARK"],
+    "category": "action",
+    "definition_core": "An element at base contact with a friendly transport enters the transport. The embarked element is carried inside and cannot act until it disembarks.",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Disembark",
+    "aliases": ["disembark", "Disembark", "DISEMBARK"],
+    "category": "action",
+    "definition_core": "An embarked element exits its transport, placing at base contact with the transport vehicle. The element may then act normally on subsequent activations.",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Combat Drop",
+    "aliases": ["combat drop", "Combat Drop", "COMBAT DROP"],
+    "category": "action",
+    "definition_core": "Drop an embarked element from an Aircraft while airborne. The dropped element performs a Controlled Crash landing to reach the ground.",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Cautious",
+    "aliases": ["cautious", "Cautious", "CAUTIOUS", "cautious movement"],
+    "category": "movement",
+    "definition_core": "Move up to M inches. Grants Alert status (360-degree Arc of Vision) for the duration. The slowest and safest movement mode.",
+    "definition_quickplay": null,
+    "page_ref_core": 40,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Patrol",
+    "aliases": ["patrol", "Patrol", "PATROL", "patrol movement"],
+    "category": "movement",
+    "definition_core": "Move up to 2xM inches. The standard movement mode available to all elements. No special bonuses or restrictions beyond normal terrain effects.",
+    "definition_quickplay": null,
+    "page_ref_core": 40,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Rapid",
+    "aliases": ["rapid", "Rapid", "RAPID", "rapid movement"],
+    "category": "movement",
+    "definition_core": "Move up to 3xM inches. Requires the Rapid special rule. The element may only change facing once, at either the start or end of its movement.",
+    "definition_quickplay": null,
+    "page_ref_core": 40,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Duck & Move",
+    "aliases": ["duck & move", "Duck & Move", "DUCK & MOVE", "duck and move", "Duck and Move"],
+    "category": "movement",
+    "definition_core": "Available to Walker motive types only. Move at Cautious speed with a reduced silhouette, making the element harder to target.",
+    "definition_quickplay": "Not available in Quickplay rules.",
+    "page_ref_core": 40,
+    "page_ref_quickplay": 185
+  },
+  {
+    "term": "Infantry",
+    "aliases": ["infantry", "Infantry", "INFANTRY"],
+    "category": "motive",
+    "definition_core": "Trooper-only motive type. Can scale cliffs and buildings at Cautious speed, ignores Rough terrain, and can enter buildings. The most versatile motive type for terrain interaction.",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Tracked",
+    "aliases": ["tracked", "Tracked", "TRACKED"],
+    "category": "motive",
+    "definition_core": "Vehicle-only motive type. Ignores Rough terrain entirely and treats Difficult terrain as Rough. Provides reliable mobility across most battlefield conditions.",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Wheeled",
+    "aliases": ["wheeled", "Wheeled", "WHEELED"],
+    "category": "motive",
+    "definition_core": "Gains the Rapid movement mode when on Paved terrain. Best suited for road-based operations and urban environments with paved surfaces.",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Hovercraft",
+    "aliases": ["hovercraft", "Hovercraft", "HOVERCRAFT"],
+    "category": "motive",
+    "definition_core": "Ignores Paved, Rough, and Difficult terrain. Treats Forests and Ruins as Dangerous terrain. Suffers -1 Class when involved in a Charge (close combat disadvantage).",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Walker",
+    "aliases": ["walker", "Walker", "WALKER"],
+    "category": "motive",
+    "definition_core": "Can perform Duck & Move action and scale cliffs up to 1 inch in height. Combines some infantry-like terrain capability with vehicle-class firepower.",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Omnidirectional",
+    "aliases": ["omnidirectional", "Omnidirectional", "OMNIDIRECTIONAL", "vtol", "VTOL", "drone"],
+    "category": "motive",
+    "definition_core": "Used by VTOLs and drones. Highly maneuverable aircraft motive type. Cannot perform the Do Nothing action while airborne; must always take at least one move action per turn.",
+    "definition_quickplay": null,
+    "page_ref_core": 60,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Fixed-Wing",
+    "aliases": ["fixed-wing", "Fixed-Wing", "FIXED-WING", "fixed wing", "Fixed Wing"],
+    "category": "motive",
+    "definition_core": "Cannot perform Cautious movement. MUST move at least once per turn or the aircraft stalls. Has a reduced 90-degree Arc of Fire instead of the standard 180 degrees.",
+    "definition_quickplay": null,
+    "page_ref_core": 60,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Rail",
+    "aliases": ["rail", "Rail", "RAIL"],
+    "category": "motive",
+    "definition_core": "Must follow rail terrain features on the battlefield. Movement along rails is treated as Paved terrain, granting the associated speed bonus.",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Defence (Motive)",
+    "aliases": ["defence motive", "Defence Motive", "DEFENCE MOTIVE", "defense motive", "static", "emplacement"],
+    "category": "motive",
+    "definition_core": "Movement stat is X (cannot move at all). Limited to Shoot, Aimed Shot, Guard, and Do Nothing actions only. Represents fixed emplacements and static defences.",
+    "definition_quickplay": null,
+    "page_ref_core": 146,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Paved",
+    "aliases": ["paved", "Paved", "PAVED", "road", "roads"],
+    "category": "terrain",
+    "definition_core": "Grants +1M to all ground elements moving through it. Wheeled motive types gain the Rapid movement mode while on Paved terrain.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Plain",
+    "aliases": ["plain", "Plain", "PLAIN", "open ground"],
+    "category": "terrain",
+    "definition_core": "Default terrain type with no special rules. Movement and combat proceed at standard rates with no modifiers.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Rough",
+    "aliases": ["rough", "Rough", "ROUGH", "rough terrain"],
+    "category": "terrain",
+    "definition_core": "Imposes -1M penalty on movement. Tracked, Hovercraft, and Aircraft motive types ignore Rough terrain entirely.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Difficult",
+    "aliases": ["difficult", "Difficult", "DIFFICULT", "difficult terrain"],
+    "category": "terrain",
+    "definition_core": "Imposes -1M penalty. Elements moving at Rapid speed must roll a D12; if the result is less than the distance moved, they take 1 hit. Move & Shoot cannot be performed in Difficult terrain.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Hazardous",
+    "aliases": ["hazardous", "Hazardous", "HAZARDOUS", "hazardous terrain"],
+    "category": "terrain",
+    "definition_core": "Imposes -1M penalty. Elements moving at Patrol or Rapid speed must roll a D12; if the result is less than the distance moved, they take 1 hit.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Dangerous",
+    "aliases": ["dangerous", "Dangerous", "DANGEROUS", "dangerous terrain"],
+    "category": "terrain",
+    "definition_core": "Any element moving through must roll a D12; if the result is less than the distance moved, they take 1 hit. This effect stacks with other terrain modifiers.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Treacherous",
+    "aliases": ["treacherous", "Treacherous", "TREACHEROUS", "treacherous terrain"],
+    "category": "terrain",
+    "definition_core": "Functions like Dangerous terrain but instead of taking a hit, the element loses 1 Action Token. This can leave an element stranded mid-move with no remaining actions.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Impassable",
+    "aliases": ["impassable", "Impassable", "IMPASSABLE", "impassable terrain"],
+    "category": "terrain",
+    "definition_core": "Cannot be entered by any element. Any element forced into Impassable terrain by any means is immediately Destroyed.",
+    "definition_quickplay": null,
+    "page_ref_core": 67,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Solid",
+    "aliases": ["solid", "Solid", "SOLID", "solid terrain"],
+    "category": "terrain",
+    "definition_core": "Blocks both Line of Sight and Line of Fire completely. No element can see through or shoot through Solid terrain.",
+    "definition_quickplay": null,
+    "page_ref_core": 68,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Open Structure",
+    "aliases": ["open structure", "Open Structure", "OPEN STRUCTURE"],
+    "category": "terrain",
+    "definition_core": "Terrain with gaps or partial walls. Partial Cover rules apply to elements behind or within Open Structures, providing defensive bonuses without fully blocking LoS.",
+    "definition_quickplay": null,
+    "page_ref_core": 68,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Foliage",
+    "aliases": ["foliage", "Foliage", "FOLIAGE", "trees", "forest"],
+    "category": "terrain",
+    "definition_core": "Adds +1 inch to effective range for every 1 inch of Foliage between shooter and target. A total of 6 inches of Foliage completely blocks Line of Sight.",
+    "definition_quickplay": null,
+    "page_ref_core": 68,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Smoke",
+    "aliases": ["smoke", "Smoke", "SMOKE"],
+    "category": "terrain",
+    "definition_core": "Adds +2 inches to effective range for every 1 inch of Smoke between shooter and target. A total of 3 inches of Smoke completely blocks Line of Sight. Dissipates after 1 turn.",
+    "definition_quickplay": null,
+    "page_ref_core": 68,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Fortified",
+    "aliases": ["fortified", "Fortified", "FORTIFIED", "fortified cover"],
+    "category": "terrain",
+    "definition_core": "Elements behind Fortified terrain or cover receive half hits per attack, rounded down. Provides the strongest defensive benefit of any cover type.",
+    "definition_quickplay": null,
+    "page_ref_core": 69,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Flammable",
+    "aliases": ["flammable", "Flammable", "FLAMMABLE"],
+    "category": "terrain",
+    "definition_core": "Terrain that can catch fire from attacks or explosions. Once Burning, it becomes both Dangerous terrain and produces Smoke, combining movement hazards with LoS obstruction.",
+    "definition_quickplay": null,
+    "page_ref_core": 69,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Immobilised",
+    "aliases": ["immobilised", "Immobilised", "IMMOBILISED", "immobilized", "Immobilized"],
+    "category": "status",
+    "definition_core": "Movement (M) reduced to 0. The element cannot move or change facing. It can still shoot, perform non-movement actions, and react to enemy actions.",
+    "definition_quickplay": null,
+    "page_ref_core": 32,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Disabled",
+    "aliases": ["disabled", "Disabled", "DISABLED", "disarmed", "Disarmed", "DISARMED"],
+    "category": "status",
+    "definition_core": "Firepower (F) reduced to 0. The element cannot attack or use any F-dependent actions including Shoot, Aimed Shot, Suppressive Fire, or Move & Shoot.",
+    "definition_quickplay": null,
+    "page_ref_core": 32,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Deactivated",
+    "aliases": ["deactivated", "Deactivated", "DEACTIVATED"],
+    "category": "status",
+    "definition_core": "Defence (D) reduced to 0. The element cannot defend against attacks, use special actions, or react to enemy actions. Extremely vulnerable.",
+    "definition_quickplay": null,
+    "page_ref_core": 32,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Destroyed",
+    "aliases": ["destroyed", "Destroyed", "DESTROYED", "wreck", "Wreck"],
+    "category": "status",
+    "definition_core": "Armour (A) reduced to 0. The element is removed from play. If the element has a Damage Bar with remaining boxes, it becomes a Wreck (terrain obstacle) instead of being fully removed.",
+    "definition_quickplay": null,
+    "page_ref_core": 32,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Vulnerable",
+    "aliases": ["vulnerable", "Vulnerable", "VULNERABLE"],
+    "category": "status",
+    "definition_core": "The element has reduced defensive capability, making it easier to damage. Applies when specific conditions weaken the element's ability to resist incoming fire.",
+    "definition_quickplay": null,
+    "page_ref_core": 32,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Exhausted",
+    "aliases": ["exhausted", "Exhausted", "EXHAUSTED"],
+    "category": "status",
+    "definition_core": "The element has used all of its capabilities for the current turn. It cannot perform any further actions or reactions until the next turn.",
+    "definition_quickplay": null,
+    "page_ref_core": 32,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Downed",
+    "aliases": ["downed", "Downed", "DOWNED"],
+    "category": "status",
+    "definition_core": "The element loses 1 Action Token per turn until recovered. Cannot move. Represents a critically damaged or incapacitated state requiring assistance.",
+    "definition_quickplay": null,
+    "page_ref_core": 34,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Retreating",
+    "aliases": ["retreating", "Retreating", "RETREATING", "retreat", "Retreat"],
+    "category": "status",
+    "definition_core": "The element is leaving the battlefield outside of mission objectives. Grants the opponent VP equal to half the retreating element's Class value (rounded as appropriate).",
+    "definition_quickplay": null,
+    "page_ref_core": 34,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Guard (Status)",
+    "aliases": ["guard mode", "Guard Mode", "GUARD MODE", "on guard", "guarding"],
+    "category": "status",
+    "definition_core": "The element has a Guard token from performing the Guard action. It can react to enemy actions within its Line of Sight during the opponent's turn.",
+    "definition_quickplay": null,
+    "page_ref_core": 44,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Pinned",
+    "aliases": ["pinned", "Pinned", "PINNED"],
+    "category": "status",
+    "definition_core": "Element is under the effect of Suppressive Fire. Must pass a test to perform actions. Represents the psychological and tactical impact of sustained incoming fire.",
+    "definition_quickplay": null,
+    "page_ref_core": 43,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Spotting Pool",
+    "aliases": ["spotting pool", "Spotting Pool", "SPOTTING POOL"],
+    "category": "solo",
+    "definition_core": "In Solo/Co-op mode, spotted AI elements are placed in the Spotting Pool. They enter the table on the next turn from the center of the appropriate board edge.",
+    "definition_quickplay": null,
+    "page_ref_core": 188,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Spawn Check",
+    "aliases": ["spawn check", "Spawn Check", "SPAWN CHECK", "spawn"],
+    "category": "solo",
+    "definition_core": "Roll D12 + current turn number. If the total is 8 or greater, a new AI element spawns. A Spawn Check is performed after each player action in Solo/Co-op mode.",
+    "definition_quickplay": null,
+    "page_ref_core": 188,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Target Priority",
+    "aliases": ["target priority", "Target Priority", "TARGET PRIORITY", "ai targeting"],
+    "category": "solo",
+    "definition_core": "AI targeting chain used in Solo/Co-op mode. Priority order: the element that triggered the AI reaction, then the closest element to the objective, then the highest Class element.",
+    "definition_quickplay": null,
+    "page_ref_core": 187,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Strategic Asset",
+    "aliases": ["strategic asset", "Strategic Asset", "STRATEGIC ASSET"],
+    "category": "solo",
+    "definition_core": "Special AI spawn result triggered by rolling 11-12 on the spawn table. Can include airstrikes, artillery barrages, sabotage, and other powerful one-time effects.",
+    "definition_quickplay": null,
+    "page_ref_core": 189,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Interference Token",
+    "aliases": ["interference token", "Interference Token", "INTERFERENCE TOKEN", "interference"],
+    "category": "solo",
+    "definition_core": "Electronic Warfare resource used in Solo/Co-op mode. The AI receives 5 Interference Tokens total for the entire mission, used to disrupt player actions.",
+    "definition_quickplay": null,
+    "page_ref_core": 191,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Field Asset",
+    "aliases": ["field asset", "Field Asset", "FIELD ASSET", "field assets"],
+    "category": "solo",
+    "definition_core": "Player infrastructure elements in Solo/Co-op mode. Includes Frontline HQ, Logistics Hub, and Comms Node. Each provides unique bonuses but becomes a liability if captured by the AI.",
+    "definition_quickplay": null,
+    "page_ref_core": 196,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Frontline HQ",
+    "aliases": ["frontline hq", "Frontline HQ", "FRONTLINE HQ", "frontline headquarters"],
+    "category": "solo",
+    "definition_core": "Field Asset that grants +1 BP for HQ Assets. If captured (AI element within 3 inches), the AI immediately rolls on the Strategic Asset table.",
+    "definition_quickplay": null,
+    "page_ref_core": 196,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Logistics Hub",
+    "aliases": ["logistics hub", "Logistics Hub", "LOGISTICS HUB"],
+    "category": "solo",
+    "definition_core": "Field Asset that grants +1 FC (Force Class) for force building. If captured by the AI (enemy within 3 inches), the AI rolls on the Strategic Asset table.",
+    "definition_quickplay": null,
+    "page_ref_core": 196,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Comms Node",
+    "aliases": ["comms node", "Comms Node", "COMMS NODE", "communications node"],
+    "category": "solo",
+    "definition_core": "Field Asset that grants +2 Interference Tokens to the player. If captured by the AI (enemy within 3 inches), the player loses 2 Interference Tokens instead.",
+    "definition_quickplay": null,
+    "page_ref_core": 196,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Command Token",
+    "aliases": ["command token", "Command Token", "COMMAND TOKEN"],
+    "category": "solo",
+    "definition_core": "Generated by the Chain of Command special rule. Provides an extra Action Token that can be assigned to any friendly element, granting it an additional action during its activation.",
+    "definition_quickplay": null,
+    "page_ref_core": 125,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Rapid (Special Rule)",
+    "aliases": ["rapid special rule", "Rapid Special Rule", "RAPID SPECIAL RULE"],
+    "category": "special_rule",
+    "definition_core": "Allows the element to use Rapid movement mode (3xM inches). During Rapid movement, the element may only change facing once, either at the start or end of its move.",
+    "definition_quickplay": null,
+    "page_ref_core": 153,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Orbital Entry",
+    "aliases": ["orbital entry", "Orbital Entry", "ORBITAL ENTRY"],
+    "category": "special_rule",
+    "definition_core": "Allows Deep Deployment from Reserve without requiring an asset. Aircraft with this rule stay airborne upon entry. Represents forces arriving from orbit or high altitude.",
+    "definition_quickplay": null,
+    "page_ref_core": 157,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Ambush",
+    "aliases": ["ambush", "Ambush", "AMBUSH"],
+    "category": "special_rule",
+    "definition_core": "Up to 3 elements can be placed on the battlefield after the opponent has fully deployed. Requires winning the Initiative roll to use this ability.",
+    "definition_quickplay": null,
+    "page_ref_core": 128,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Dig In",
+    "aliases": ["dig in", "Dig In", "DIG IN"],
+    "category": "special_rule",
+    "definition_core": "An occupying element counts as being behind Fortified cover. Provides the strongest possible cover bonus (half hits per attack, rounded down) while stationary.",
+    "definition_quickplay": null,
+    "page_ref_core": 153,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Alert",
+    "aliases": ["alert", "Alert", "ALERT"],
+    "category": "special_rule",
+    "definition_core": "Grants 360-degree Arc of Vision at all times. The element can see in all directions regardless of facing, eliminating blind spots from flanking or rear attacks.",
+    "definition_quickplay": null,
+    "page_ref_core": 157,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Repair",
+    "aliases": ["repair", "Repair", "REPAIR"],
+    "category": "special_rule",
+    "definition_core": "At base contact with a friendly element, spend an action to roll D (Defence) dice against the target's Damage Bar total. Each die that rolls higher than the total restores 1 point to M, F, or D (player's choice).",
+    "definition_quickplay": null,
+    "page_ref_core": 153,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Self-Repair",
+    "aliases": ["self-repair", "Self-Repair", "SELF-REPAIR", "self repair", "Self Repair"],
+    "category": "special_rule",
+    "definition_core": "Functions identically to Repair but the element performs it on itself. No base contact with another friendly element required.",
+    "definition_quickplay": null,
+    "page_ref_core": 153,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Full Strike",
+    "aliases": ["full strike", "Full Strike", "FULL STRIKE"],
+    "category": "special_rule",
+    "definition_core": "Grants +2F for a single attack. After using Full Strike, the element suffers -2F on all subsequent attacks until it performs a Reload action to restore its Firepower.",
+    "definition_quickplay": null,
+    "page_ref_core": 157,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Lumbering",
+    "aliases": ["lumbering", "Lumbering", "LUMBERING"],
+    "category": "special_rule",
+    "definition_core": "The element cannot perform the Guard action. It is too slow or unwieldy to maintain an overwatch state, making it unable to react during the opponent's turn via Guard.",
+    "definition_quickplay": null,
+    "page_ref_core": 162,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Countermeasures",
+    "aliases": ["countermeasures", "Countermeasures", "COUNTERMEASURES"],
+    "category": "special_rule",
+    "definition_core": "Spend an action to remove all Relay Coordinates currently targeting this element. Prevents Indirect Fire attacks that rely on relayed targeting data.",
+    "definition_quickplay": null,
+    "page_ref_core": 153,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Stealth",
+    "aliases": ["stealth", "Stealth", "STEALTH"],
+    "category": "special_rule",
+    "definition_core": "The element does not trigger Guard responses from enemy elements. It can move and act within the Line of Sight of Guarding enemies without provoking a reaction.",
+    "definition_quickplay": null,
+    "page_ref_core": 157,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Transport Bay",
+    "aliases": ["transport bay", "Transport Bay", "TRANSPORT BAY", "transport"],
+    "category": "special_rule",
+    "definition_core": "The element can carry other elements inside it, up to a total Class value of C-1 (one less than its own Class). Transported elements must Embark and Disembark to enter or exit.",
+    "definition_quickplay": null,
+    "page_ref_core": 157,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Spotter",
+    "aliases": ["spotter", "Spotter", "SPOTTER"],
+    "category": "special_rule",
+    "definition_core": "Can paint targets within Line of Sight for elements using Guided or Indirect Fire. Acts as a forward observer, enabling ranged attacks that would otherwise lack targeting data.",
+    "definition_quickplay": null,
+    "page_ref_core": 153,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Chain of Command",
+    "aliases": ["chain of command", "Chain of Command", "CHAIN OF COMMAND"],
+    "category": "special_rule",
+    "definition_core": "HQ-level special rule. Generates 1 Command Token per turn. Command Tokens provide an extra Action Token to any friendly element, enabling additional actions during their activation.",
+    "definition_quickplay": null,
+    "page_ref_core": 125,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Augment Dice",
+    "aliases": ["augment dice", "Augment Dice", "AUGMENT DICE", "augment"],
+    "category": "special_rule",
+    "definition_core": "Any die that rolls a natural 12 generates an additional die that is also rolled. This can chain if the additional die also rolls a 12, creating explosive results.",
+    "definition_quickplay": null,
+    "page_ref_core": 41,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Critical Hit",
+    "aliases": ["critical hit", "Critical Hit", "CRITICAL HIT", "crit", "twin pair"],
+    "category": "special_rule",
+    "definition_core": "Occurs when a twin pair (two dice showing the same value) appears in the attack pool. The attacker chooses which stat (M, F, D, or A) to reduce, rather than the defender choosing.",
+    "definition_quickplay": "Each twin pair in the attack pool adds +1 damage to the total instead of choosing a stat.",
+    "page_ref_core": 41,
+    "page_ref_quickplay": 185
+  },
+  {
+    "term": "Damage Bar",
+    "aliases": ["damage bar", "Damage Bar", "DAMAGE BAR"],
+    "category": "special_rule",
+    "definition_core": "A permanent record of total damage taken by an element across the entire game. Damage Bar values cannot be restored by any means. Used as the threshold for Reload and Repair checks.",
+    "definition_quickplay": "Damage Bar equals 2x the element's Class value.",
+    "page_ref_core": 32,
+    "page_ref_quickplay": 185
+  },
+  {
+    "term": "Cover",
+    "aliases": ["cover", "Cover", "COVER", "partial cover"],
+    "category": "special_rule",
+    "definition_core": "Terrain modifier added to the effective range when targeting an element behind terrain. Partial Cover adds +1 or +3 inches to the effective range depending on the degree of obstruction.",
+    "definition_quickplay": null,
+    "page_ref_core": 68,
+    "page_ref_quickplay": null
+  },
+  {
+    "term": "Effective Range",
+    "aliases": ["effective range", "Effective Range", "EFFECTIVE RANGE"],
+    "category": "special_rule",
+    "definition_core": "The total number a shooting die must equal or exceed to score a hit. Calculated as: distance to target in inches + target's Armour (A) value + any Cover modifiers.",
+    "definition_quickplay": null,
+    "page_ref_core": 41,
+    "page_ref_quickplay": null
+  }
+]
