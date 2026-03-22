@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Panel from '../shared/Panel';
 import KeywordText from '../shared/KeywordText';
 import { useRulesetStore } from '../../stores/rulesetStore';
@@ -31,8 +32,8 @@ const SUGGESTED_QUESTIONS = {
   ],
 };
 
-const CONFIDENCE_COLORS = {
-  HIGH: 'text-green-600 border-green-600',
+const CONFIDENCE_STYLES = {
+  HIGH: 'text-green border-green',
   MEDIUM: 'text-accent-dark border-accent-dark',
   LOW: 'text-red-muted border-red-muted',
 };
@@ -69,11 +70,7 @@ export default function ChatPanel() {
         content: m.content,
       }));
 
-      const response: ChatResponse = await sendChatMessage(
-        text.trim(),
-        ruleset,
-        history
-      );
+      const response: ChatResponse = await sendChatMessage(text.trim(), ruleset, history);
 
       const assistantMsg: Message = {
         id: `assistant-${Date.now()}`,
@@ -85,7 +82,7 @@ export default function ChatPanel() {
       setMessages((prev) => [...prev, assistantMsg]);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : 'Failed to get response. Is the backend running?'
+        err instanceof Error ? err.message : 'Failed to connect. Is the backend running on localhost:8000?'
       );
     } finally {
       setLoading(false);
@@ -98,29 +95,26 @@ export default function ChatPanel() {
   };
 
   return (
-    <Panel className="flex flex-col h-full min-h-[400px] max-h-[600px]">
-      <div className="flex items-center justify-between mb-3 pb-2 border-b border-dark-20">
-        <h3 className="font-ui text-xs uppercase tracking-widest text-dark m-0">
-          Rules AI Chat
-        </h3>
-        <span className="font-mono text-[7pt] text-accent-dark">
-          [{ruleset.toUpperCase()}]
-        </span>
+    <Panel className="flex flex-col !p-0 overflow-hidden" cropMarks={false}>
+      {/* Header */}
+      <div className="bg-dark px-4 py-2.5 flex items-center justify-between">
+        <span className="text-display-section text-white">Rules Referee</span>
+        <span className="text-micro text-accent">{ruleset.toUpperCase()}</span>
       </div>
 
-      {/* Messages area */}
-      <div className="flex-1 overflow-y-auto space-y-3 mb-3 pr-1">
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[300px] max-h-[500px]">
         {messages.length === 0 && (
           <div>
-            <p className="font-body text-[9pt] text-dark-50 mb-3">
-              Ask any rules question. Answers are grounded in the official rulebook with page citations.
+            <p className="text-body-sm text-dark-50 mb-3">
+              Ask any rules question. Answers cite the official rulebook.
             </p>
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               {SUGGESTED_QUESTIONS[ruleset].map((q, i) => (
                 <button
                   key={i}
                   onClick={() => sendMessage(q)}
-                  className="block w-full text-left font-body text-[9pt] text-dark px-2 py-1.5 bg-bg-secondary border border-dark-20 hover:border-accent cursor-pointer transition-colors"
+                  className="block w-full text-left text-body-sm text-dark px-3 py-2 bg-surface border border-dark-20 hover:border-accent hover:bg-hover cursor-pointer transition-colors"
                 >
                   {q}
                 </button>
@@ -130,24 +124,23 @@ export default function ChatPanel() {
         )}
 
         {messages.map((msg) => (
-          <div
+          <motion.div
             key={msg.id}
-            className={`${
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className={`p-3 ${
               msg.role === 'user'
-                ? 'bg-bg-secondary ml-8'
-                : 'bg-bg-card mr-4 border-l-2 border-accent'
-            } p-2`}
+                ? 'bg-surface ml-6'
+                : 'bg-bg-card border-l-2 border-accent mr-2'
+            }`}
           >
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-mono text-[7pt] text-dark-50 uppercase">
-                {msg.role === 'user' ? 'You' : 'Referee'}
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="text-micro text-dark-50">
+                {msg.role === 'user' ? 'YOU' : 'REFEREE'}
               </span>
               {msg.confidence && (
-                <span
-                  className={`font-mono text-[7pt] border px-1 ${
-                    CONFIDENCE_COLORS[msg.confidence]
-                  }`}
-                >
+                <span className={`text-micro border px-1.5 py-0.5 ${CONFIDENCE_STYLES[msg.confidence]}`}>
                   {msg.confidence}
                 </span>
               )}
@@ -155,37 +148,34 @@ export default function ChatPanel() {
             {msg.role === 'assistant' ? (
               <KeywordText
                 text={msg.content}
-                className="font-body text-[9pt] text-dark leading-relaxed whitespace-pre-line"
+                className="text-body-sm text-dark leading-relaxed whitespace-pre-line"
               />
             ) : (
-              <p className="font-body text-[9pt] text-dark m-0">{msg.content}</p>
+              <p className="text-body-sm text-dark m-0">{msg.content}</p>
             )}
             {msg.citations.length > 0 && (
-              <div className="mt-1 flex flex-wrap gap-1">
+              <div className="mt-2 flex flex-wrap gap-1">
                 {msg.citations.map((c, i) => (
-                  <span
-                    key={i}
-                    className="font-mono text-[7pt] text-dark-50 bg-bg-primary px-1"
-                  >
+                  <span key={i} className="text-micro text-dark-50 bg-surface px-1.5 py-0.5 border border-dark-20">
                     {c}
                   </span>
                 ))}
               </div>
             )}
-          </div>
+          </motion.div>
         ))}
 
         {loading && (
-          <div className="bg-bg-card p-2 border-l-2 border-accent mr-4">
-            <span className="font-mono text-[8pt] text-dark-50 animate-pulse">
-              Consulting the rulebook...
+          <div className="p-3 bg-bg-card border-l-2 border-accent mr-2">
+            <span className="text-meta text-dark-50 animate-pulse">
+              Consulting rulebook...
             </span>
           </div>
         )}
 
         {error && (
-          <div className="bg-red-muted/10 border border-red-muted p-2">
-            <span className="font-body text-[9pt] text-red-muted">{error}</span>
+          <div className="p-3 bg-red-muted/10 border border-red-muted/40">
+            <span className="text-body-sm text-red-muted">{error}</span>
           </div>
         )}
 
@@ -193,21 +183,21 @@ export default function ChatPanel() {
       </div>
 
       {/* Input */}
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form onSubmit={handleSubmit} className="flex border-t border-dark-20">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask a rules question..."
           disabled={loading}
-          className="flex-1 font-body text-sm bg-bg-primary border border-dark-20 px-3 py-1.5 text-dark placeholder:text-dark-50 focus:outline-none focus:border-accent disabled:opacity-50"
+          className="flex-1 text-body bg-bg-primary border-none px-4 py-3 text-dark placeholder:text-dark-50 focus:outline-none disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={loading || !input.trim()}
-          className="font-ui text-xs uppercase tracking-widest bg-accent text-dark px-3 py-1.5 border-none cursor-pointer hover:bg-accent-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          className="text-meta bg-accent text-dark px-4 border-none cursor-pointer hover:bg-accent-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          Ask
+          ASK
         </button>
       </form>
     </Panel>

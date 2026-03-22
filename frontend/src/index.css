@@ -2,23 +2,39 @@
 
 /* ============================================
    HARDWAR COMPANION — Design System
-   Aerospace / Racing HUD aesthetic
+   Aerospace / Tactical HUD aesthetic
+   Inspired by AURA intelligence-agency patterns
    ============================================ */
 
 @theme {
-  /* Color Tokens — PRD Section 10 */
+  /* Surface Colors */
   --color-bg-primary: #C2D0D6;
   --color-bg-secondary: #B0C2C8;
   --color-bg-card: #D4E0E4;
+  --color-surface: #D8E2E6;
+  --color-hover: #C8D6DC;
+
+  /* Content Colors */
   --color-dark: #1C1814;
+  --color-secondary: #4A4644;
   --color-dark-50: #8E8C8A;
   --color-dark-20: #D5D4D3;
+  --color-white: #FAFAF8;
+
+  /* Accent */
   --color-accent: #F5E600;
   --color-accent-dark: #C4B800;
-  --color-white: #FAFAF8;
-  --color-red-muted: #8B3030;
+  --color-accent-glow: rgba(245, 230, 0, 0.12);
 
-  /* Typography — PRD Section 10 */
+  /* Semantic */
+  --color-red-muted: #8B3030;
+  --color-green: #2D6B3F;
+
+  /* Grid/Decorative */
+  --color-grid-line: rgba(28, 24, 20, 0.06);
+  --color-grid-dot: rgba(28, 24, 20, 0.12);
+
+  /* Typography */
   --font-display: 'Barlow Condensed', sans-serif;
   --font-ui: 'Barlow Semi Condensed', sans-serif;
   --font-body: 'Barlow', sans-serif;
@@ -26,10 +42,9 @@
 }
 
 /* ============================================
-   Font Face Declarations
+   Font Faces
    ============================================ */
 
-/* Barlow Condensed — Display (48-72pt, 700) */
 @font-face {
   font-family: 'Barlow Condensed';
   font-style: normal;
@@ -37,8 +52,6 @@
   font-display: swap;
   src: url('/fonts/barlow-condensed-v13-latin-700.woff2') format('woff2');
 }
-
-/* Barlow Semi Condensed — UI Sans (10-14pt, 600) */
 @font-face {
   font-family: 'Barlow Semi Condensed';
   font-style: normal;
@@ -46,8 +59,6 @@
   font-display: swap;
   src: url('/fonts/barlow-semi-condensed-v16-latin-600.woff2') format('woff2');
 }
-
-/* Barlow — Body (8.5-10pt, 400) */
 @font-face {
   font-family: 'Barlow';
   font-style: normal;
@@ -62,8 +73,6 @@
   font-display: swap;
   src: url('/fonts/barlow-v13-latin-600.woff2') format('woff2');
 }
-
-/* IBM Plex Mono — Mono (7-9pt, 400-700) */
 @font-face {
   font-family: 'IBM Plex Mono';
   font-style: normal;
@@ -80,11 +89,85 @@
 }
 
 /* ============================================
+   Typography Presets (AURA-style hierarchy)
+   ============================================ */
+
+.text-display-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.text-display-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.text-display-card {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.text-display-section {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.text-meta {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.text-micro {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============================================
    Base Styles
    ============================================ */
 
 html {
   font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
   background: var(--color-bg-primary);
   color: var(--color-dark);
   -webkit-font-smoothing: antialiased;
@@ -103,101 +186,28 @@ body {
 }
 
 /* ============================================
-   Component Patterns
+   Decorative Patterns
    ============================================ */
 
-/* Panel — the workhorse container */
-.panel {
-  border: 1px solid var(--color-dark-20);
-  padding: 16px;
-  position: relative;
+/* Blueprint grid overlay — 80px squares at low opacity */
+.bg-blueprint-grid {
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
-.panel-dotmatrix {
+/* Dot matrix pattern */
+.bg-dot-matrix {
   background-image: radial-gradient(
     circle,
-    var(--color-dark) 1px,
-    transparent 1px
+    var(--color-grid-dot) 0.8px,
+    transparent 0.8px
   );
-  background-size: 18px 18px;
-  background-position: 0 0;
+  background-size: 16px 16px;
 }
 
-/* Reduce dot-matrix opacity via pseudo-element overlay */
-.panel-dotmatrix::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-bg-primary);
-  opacity: 0.94;
-  pointer-events: none;
-}
-.panel-dotmatrix > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Corner Registration Marks — L-brackets at all 4 corners */
-.reg-marks {
-  position: relative;
-}
-.reg-marks::before,
-.reg-marks::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--color-dark-50);
-  border-style: solid;
-  pointer-events: none;
-}
-.reg-marks::before {
-  top: -1px;
-  left: -1px;
-  border-width: 1px 0 0 1px;
-}
-.reg-marks::after {
-  top: -1px;
-  right: -1px;
-  border-width: 1px 1px 0 0;
-}
-/* Bottom corners via child pseudo-elements require a wrapper —
-   use .reg-marks-bottom on an inner element */
-.reg-marks-bottom::before,
-.reg-marks-bottom::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--color-dark-50);
-  border-style: solid;
-  pointer-events: none;
-}
-.reg-marks-bottom::before {
-  bottom: -1px;
-  left: -1px;
-  border-width: 0 0 1px 1px;
-}
-.reg-marks-bottom::after {
-  bottom: -1px;
-  right: -1px;
-  border-width: 0 1px 1px 0;
-}
-
-/* Accent Bar — 4px yellow left border */
-.accent-bar {
-  border-left: 4px solid var(--color-accent);
-}
-
-/* Header Stripe — dark bg with accent text */
-.header-stripe {
-  background: var(--color-dark);
-  color: var(--color-accent);
-  font-family: var(--font-mono);
-  padding: 8px 16px;
-}
-
-/* Stat Cell */
+/* Stat cell */
 .stat-cell {
   border: 1px solid var(--color-dark-20);
   background: var(--color-bg-card);
@@ -207,12 +217,14 @@ body {
   align-items: center;
   justify-content: center;
   padding: 4px 8px;
+  min-height: 48px;
 }
 .stat-cell-label {
   font-family: var(--font-ui);
-  font-size: 6pt;
-  font-variant: small-caps;
+  font-size: 8px;
+  font-weight: 600;
   letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--color-dark-50);
   position: absolute;
   top: 2px;
@@ -220,52 +232,28 @@ body {
 }
 .stat-cell-value {
   font-family: var(--font-mono);
-  font-size: 20pt;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1;
   color: var(--color-dark);
-}
-
-/* Damage Track */
-.damage-box {
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--color-dark-20);
-  background: var(--color-bg-card);
-}
-.damage-box-filled {
-  background: var(--color-red-muted);
 }
 
 /* ============================================
    Scrollbar
    ============================================ */
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-dark-20);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-dark-50);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--color-dark-20); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-dark-50); }
 
 /* ============================================
-   Print Stylesheet
+   Print
    ============================================ */
 
 @media print {
-  body {
-    background: white !important;
-  }
-  .no-print {
-    display: none !important;
-  }
+  body { background: white !important; }
+  .no-print { display: none !important; }
   .stat-card {
     break-inside: avoid;
     print-color-adjust: exact;

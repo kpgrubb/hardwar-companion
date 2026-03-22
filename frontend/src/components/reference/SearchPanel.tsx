@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import Panel from '../shared/Panel';
+import { useState, useMemo, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import elementsData from '../../data/elements.json';
 import modulesData from '../../data/learn-modules.json';
 import quickRefData from '../../data/quick-reference.json';
@@ -21,18 +21,8 @@ function searchAll(query: string): SearchResult[] {
   const q = query.toLowerCase();
   const results: SearchResult[] = [];
 
-  // Search elements
   for (const el of elements) {
-    const searchable = [
-      el.name,
-      el.faction,
-      el.motive_type,
-      ...el.special_rules,
-      ...el.performance_upgrades,
-      ...el.weapon_upgrades.map((w) => w.name),
-    ]
-      .join(' ')
-      .toLowerCase();
+    const searchable = [el.name, el.faction, el.motive_type, ...el.special_rules, ...el.performance_upgrades, ...el.weapon_upgrades.map((w) => w.name)].join(' ').toLowerCase();
     if (searchable.includes(q)) {
       results.push({
         type: 'element',
@@ -43,33 +33,21 @@ function searchAll(query: string): SearchResult[] {
     }
   }
 
-  // Search learn modules
   for (const mod of modules) {
     const searchable = `${mod.title} ${mod.summary} ${mod.content}`.toLowerCase();
     if (searchable.includes(q)) {
       const idx = searchable.indexOf(q);
       const start = Math.max(0, idx - 40);
       const end = Math.min(searchable.length, idx + q.length + 60);
-      results.push({
-        type: 'module',
-        title: mod.title,
-        snippet: '...' + searchable.slice(start, end) + '...',
-        pageRef: mod.page_ref,
-      });
+      results.push({ type: 'module', title: mod.title, snippet: '...' + searchable.slice(start, end) + '...', pageRef: mod.page_ref });
     }
   }
 
-  // Search quick reference
   for (const qr of quickRefs) {
     const searchable = `${qr.title} ${qr.items.join(' ')}`.toLowerCase();
     if (searchable.includes(q)) {
       const matchItem = qr.items.find((item) => item.toLowerCase().includes(q));
-      results.push({
-        type: 'quick-ref',
-        title: qr.title,
-        snippet: matchItem || qr.items[0],
-        pageRef: qr.page_ref,
-      });
+      results.push({ type: 'quick-ref', title: qr.title, snippet: matchItem || qr.items[0], pageRef: qr.page_ref });
     }
   }
 
@@ -83,30 +61,49 @@ interface SearchPanelProps {
 export default function SearchPanel({ onClose }: SearchPanelProps) {
   const [query, setQuery] = useState('');
   const results = useMemo(() => searchAll(query), [query]);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   return (
-    <div className="fixed inset-0 z-40 bg-dark/50 flex items-start justify-center pt-16">
-      <Panel className="w-full max-w-2xl bg-bg-primary max-h-[70vh] overflow-hidden flex flex-col">
-        <div className="flex items-center gap-3 mb-3">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.15 }}
+      className="fixed inset-0 z-50 bg-dark/40 flex items-start justify-center pt-20"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2, delay: 0.05 }}
+        className="w-full max-w-xl bg-bg-card border border-dark-20 shadow-lg overflow-hidden"
+      >
+        {/* Search input */}
+        <div className="flex items-center border-b border-dark-20">
           <input
-            autoFocus
+            ref={inputRef}
             type="text"
             placeholder="Search elements, rules, missions..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 font-body text-sm bg-bg-secondary border border-dark-20 px-3 py-2 text-dark placeholder:text-dark-50 focus:outline-none focus:border-accent"
+            className="flex-1 text-body bg-transparent border-none px-5 py-3.5 text-dark placeholder:text-dark-50 focus:outline-none"
           />
           <button
             onClick={onClose}
-            className="font-mono text-xs text-dark-50 hover:text-dark bg-transparent border-none cursor-pointer"
+            className="text-meta text-dark-50 hover:text-dark bg-transparent border-none px-4 cursor-pointer transition-colors"
           >
             ESC
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-1 -mx-4 px-4">
+        {/* Results */}
+        <div className="max-h-[50vh] overflow-y-auto">
           {query.length >= 2 && results.length === 0 && (
-            <p className="font-body text-sm text-dark-50 py-4 text-center">
+            <p className="text-body text-dark-50 py-8 text-center">
               No results for "{query}"
             </p>
           )}
@@ -114,26 +111,18 @@ export default function SearchPanel({ onClose }: SearchPanelProps) {
           {results.map((r, i) => (
             <div
               key={i}
-              className="py-2 border-b border-dark-20 last:border-none"
+              className="px-5 py-3 border-b border-dark-20 last:border-none hover:bg-hover transition-colors"
             >
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="font-mono text-[7pt] text-accent-dark uppercase">
-                  {r.type}
-                </span>
-                <span className="font-ui text-xs text-dark uppercase tracking-wide">
-                  {r.title}
-                </span>
-                <span className="font-mono text-[7pt] text-dark-50 ml-auto">
-                  p.{r.pageRef}
-                </span>
+                <span className="text-micro text-accent-dark">{r.type.toUpperCase()}</span>
+                <span className="text-display-section text-dark">{r.title}</span>
+                <span className="text-micro text-dark-50 ml-auto">p.{r.pageRef}</span>
               </div>
-              <p className="font-body text-[9pt] text-dark-50 m-0 line-clamp-2">
-                {r.snippet}
-              </p>
+              <p className="text-body-sm text-dark-50 m-0 line-clamp-2">{r.snippet}</p>
             </div>
           ))}
         </div>
-      </Panel>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

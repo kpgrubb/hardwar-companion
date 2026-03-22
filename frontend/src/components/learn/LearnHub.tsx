@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Panel from '../shared/Panel';
+import CropMarks from '../shared/CropMarks';
 import KeywordText from '../shared/KeywordText';
 import { useLearnProgressStore } from '../../stores/learnProgressStore';
 import { useRulesetStore } from '../../stores/rulesetStore';
@@ -31,155 +33,172 @@ export default function LearnHub() {
     markCompleted(id);
   };
 
-  if (selected) {
-    return (
-      <div>
-        {/* Back + Module Title */}
-        <div className="flex items-center gap-4 mb-4">
-          <button
-            onClick={() => setSelectedId(null)}
-            className="font-ui text-xs uppercase tracking-widest text-dark-50 hover:text-dark bg-transparent border-none cursor-pointer"
-          >
-            &larr; All Modules
-          </button>
-          <span className="font-mono text-[8pt] text-dark-50">
-            {selected.order} / {modules.length}
-          </span>
-        </div>
-
-        <Panel accentBar>
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-display text-2xl font-bold uppercase text-dark m-0">
-              {selected.title}
-            </h2>
-            <span className="font-mono text-[8pt] text-dark-50">
-              p.{selected.page_ref}
-            </span>
-          </div>
-
-          {/* Plain-language summary */}
-          <div className="bg-bg-secondary p-3 mb-4 border-l-4 border-accent">
-            <KeywordText
-              text={selected.summary}
-              className="font-body text-sm text-dark leading-relaxed"
-            />
-          </div>
-
-          {/* Full content */}
-          <div className="space-y-3">
-            {selected.content.split('\n\n').map((paragraph, i) => (
-              <KeywordText
-                key={i}
-                text={paragraph}
-                className="font-body text-sm text-dark leading-relaxed block whitespace-pre-line"
-              />
-            ))}
-          </div>
-
-          {/* Quickplay callout */}
-          {selected.quickplay_note && (
-            <div className="mt-4 bg-accent/10 border border-accent p-3">
-              <div className="font-ui text-[8pt] text-accent-dark uppercase tracking-widest mb-1">
-                Quickplay Difference
-              </div>
-              <KeywordText
-                text={selected.quickplay_note}
-                className="font-body text-sm text-dark"
-              />
-            </div>
-          )}
-
-          {/* Worked example */}
-          {selected.worked_example && (
-            <div className="mt-4 bg-bg-card border border-dark-20 p-3">
-              <div className="font-ui text-[8pt] text-dark-50 uppercase tracking-widest mb-2">
-                Worked Example
-              </div>
-              {selected.worked_example.split('\n\n').map((p, i) => (
-                <KeywordText
-                  key={i}
-                  text={p}
-                  className="font-mono text-[9pt] text-dark leading-relaxed block mb-2"
-                />
-              ))}
-            </div>
-          )}
-        </Panel>
-
-        {/* Previous / Next navigation */}
-        <div className="flex justify-between mt-4">
-          <button
-            onClick={() =>
-              currentIdx > 0 && handleSelect(modules[currentIdx - 1].id)
-            }
-            disabled={currentIdx <= 0}
-            className="font-ui text-xs uppercase tracking-widest px-4 py-2 border border-dark-20 bg-transparent text-dark cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:border-accent transition-colors"
-          >
-            &larr; Previous
-          </button>
-          <button
-            onClick={() =>
-              currentIdx < modules.length - 1 &&
-              handleSelect(modules[currentIdx + 1].id)
-            }
-            disabled={currentIdx >= modules.length - 1}
-            className="font-ui text-xs uppercase tracking-widest px-4 py-2 border border-dark-20 bg-transparent text-dark cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:border-accent transition-colors"
-          >
-            Next &rarr;
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  // Module grid view
   return (
-    <div>
-      <h2 className="font-display text-3xl font-bold uppercase tracking-wide text-dark mb-2">
-        Learn the Rules
-      </h2>
-      <p className="font-body text-sm text-dark-50 mb-4">
-        {completedModules.length} / {modules.length} modules completed
-      </p>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      {/* Page header */}
+      <div className="flex items-end justify-between mb-6">
+        <div>
+          <span className="text-micro text-dark-50 block mb-1">CORE &gt; LEARN</span>
+          <h1 className="text-display-title text-dark m-0">Learn the Rules</h1>
+        </div>
+        <span className="text-meta text-dark-50">
+          {completedModules.length}/{modules.length} COMPLETE
+        </span>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {modules.map((mod) => {
-          const completed = isCompleted(mod.id);
-          return (
+      <AnimatePresence mode="wait">
+        {selected ? (
+          <motion.div
+            key="module"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+          >
+            {/* Back nav */}
             <button
-              key={mod.id}
-              onClick={() => handleSelect(mod.id)}
-              className={`text-left p-4 border cursor-pointer transition-all hover:border-accent ${
-                completed
-                  ? 'bg-bg-card border-dark-20'
-                  : 'bg-bg-primary border-dark-20'
-              }`}
+              onClick={() => setSelectedId(null)}
+              className="text-meta text-dark-50 hover:text-dark bg-transparent border border-dark-20 hover:border-dark-50 px-3 py-1.5 cursor-pointer transition-colors mb-6"
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-mono text-[8pt] text-dark-50">
-                  {String(mod.order).padStart(2, '0')}
-                </span>
-                {completed && (
-                  <span className="font-mono text-[8pt] text-accent-dark">
-                    COMPLETE
+              &larr; ALL MODULES
+            </button>
+
+            <Panel statusTape="accent">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <span className="text-micro text-accent-dark block mb-1">
+                    MODULE {String(selected.order).padStart(2, '0')}
                   </span>
-                )}
+                  <h2 className="text-display-title text-dark m-0">
+                    {selected.title}
+                  </h2>
+                </div>
+                <span className="text-micro text-dark-50">p.{selected.page_ref}</span>
               </div>
-              <h3 className="font-ui text-xs uppercase tracking-wide text-dark m-0 mb-1">
-                {mod.title}
-              </h3>
-              <p className="font-body text-[9pt] text-dark-50 m-0 line-clamp-2">
-                {mod.summary}
-              </p>
-              {mod.quickplay_note && ruleset === 'quickplay' && (
-                <div className="mt-2 font-mono text-[7pt] text-accent-dark">
-                  HAS QUICKPLAY VARIANT
+
+              {/* Summary highlight */}
+              <div className="bg-accent-glow border-l-4 border-accent p-4 mb-6">
+                <KeywordText
+                  text={selected.summary}
+                  className="text-body text-dark"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="space-y-4">
+                {selected.content.split('\n\n').map((paragraph, i) => (
+                  <KeywordText
+                    key={i}
+                    text={paragraph}
+                    className="text-body text-secondary block whitespace-pre-line"
+                  />
+                ))}
+              </div>
+
+              {/* Quickplay callout */}
+              {selected.quickplay_note && (
+                <div className="mt-6 bg-accent-glow border border-accent/40 p-4">
+                  <span className="text-micro text-accent-dark block mb-2">
+                    QUICKPLAY VARIANT
+                  </span>
+                  <KeywordText
+                    text={selected.quickplay_note}
+                    className="text-body text-dark"
+                  />
                 </div>
               )}
-            </button>
-          );
-        })}
-      </div>
-    </div>
+
+              {/* Worked example */}
+              {selected.worked_example && (
+                <div className="mt-6 bg-surface border border-dark-20 p-4">
+                  <span className="text-micro text-dark-50 block mb-2">
+                    WORKED EXAMPLE
+                  </span>
+                  {selected.worked_example.split('\n\n').map((p, i) => (
+                    <KeywordText
+                      key={i}
+                      text={p}
+                      className="text-meta text-secondary block mb-2 leading-relaxed normal-case"
+                    />
+                  ))}
+                </div>
+              )}
+            </Panel>
+
+            {/* Nav */}
+            <div className="flex justify-between mt-6">
+              <button
+                onClick={() => currentIdx > 0 && handleSelect(modules[currentIdx - 1].id)}
+                disabled={currentIdx <= 0}
+                className="text-meta text-dark-50 hover:text-dark bg-transparent border border-dark-20 hover:border-dark-50 px-4 py-2 cursor-pointer transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                &larr; PREVIOUS
+              </button>
+              <button
+                onClick={() =>
+                  currentIdx < modules.length - 1 && handleSelect(modules[currentIdx + 1].id)
+                }
+                disabled={currentIdx >= modules.length - 1}
+                className="text-meta text-dark hover:text-dark bg-transparent border border-dark-20 hover:border-dark-50 px-4 py-2 cursor-pointer transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                NEXT &rarr;
+              </button>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {modules.map((mod, i) => {
+                const completed = isCompleted(mod.id);
+                return (
+                  <motion.button
+                    key={mod.id}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: i * 0.04 }}
+                    onClick={() => handleSelect(mod.id)}
+                    className="relative text-left p-5 border border-dark-20 bg-bg-card cursor-pointer transition-all duration-200 hover:shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:border-dark-50"
+                  >
+                    <CropMarks size={10} />
+                    {completed && (
+                      <div className="absolute top-0 bottom-0 left-0 w-1 bg-accent" aria-hidden />
+                    )}
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-micro text-dark-50">
+                        {String(mod.order).padStart(2, '0')}
+                      </span>
+                      {completed && (
+                        <span className="text-micro text-accent-dark">DONE</span>
+                      )}
+                    </div>
+                    <h3 className="text-display-card text-dark m-0 mb-2">
+                      {mod.title}
+                    </h3>
+                    <p className="text-body-sm text-dark-50 m-0 line-clamp-2">
+                      {mod.summary}
+                    </p>
+                    {mod.quickplay_note && ruleset === 'quickplay' && (
+                      <span className="text-micro text-accent-dark mt-2 block">
+                        HAS QP VARIANT
+                      </span>
+                    )}
+                  </motion.button>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

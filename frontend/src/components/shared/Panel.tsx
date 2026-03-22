@@ -1,23 +1,30 @@
+import CropMarks from './CropMarks';
+import StatusTape from './StatusTape';
+
 interface PanelProps {
   children: React.ReactNode;
+  cropMarks?: boolean;
+  statusTape?: 'accent' | 'muted' | 'danger';
   dotMatrix?: boolean;
-  accentBar?: boolean;
   className?: string;
 }
 
-export default function Panel({ children, dotMatrix, accentBar, className = '' }: PanelProps) {
+export default function Panel({
+  children,
+  cropMarks = true,
+  statusTape,
+  dotMatrix,
+  className = '',
+}: PanelProps) {
   return (
     <div
-      className={`
-        panel reg-marks
-        ${dotMatrix ? 'panel-dotmatrix' : ''}
-        ${accentBar ? 'accent-bar' : ''}
-        ${className}
-      `}
+      className={`relative border border-dark-20 bg-bg-card p-5 ${
+        statusTape ? 'pl-6' : ''
+      } ${dotMatrix ? 'bg-dot-matrix' : ''} ${className}`}
     >
-      <div className="reg-marks-bottom">
-        {children}
-      </div>
+      {cropMarks && <CropMarks />}
+      {statusTape && <StatusTape variant={statusTape} />}
+      {children}
     </div>
   );
 }
