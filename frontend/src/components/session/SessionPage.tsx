@@ -5,6 +5,8 @@ import SessionHUD from './SessionHUD';
 import TurnControls from './TurnControls';
 import SpawnPanel from './SpawnPanel';
 import BattleLog from './BattleLog';
+import RosterTracker from './RosterTracker';
+import BudgetVPTracker from './BudgetVPTracker';
 
 export default function SessionPage() {
   const active = useSessionStore((s) => s.active);
@@ -41,15 +43,17 @@ export default function SessionPage() {
           <SessionHUD />
 
           <div className="flex flex-col xl:flex-row gap-5">
-            {/* Main — Spawn + Turn Controls */}
+            {/* Main column */}
             <div className="flex-1 min-w-0">
               {(config?.mode === 'solo' || config?.mode === 'coop') && (
                 <SpawnPanel />
               )}
               <TurnControls />
+              <BudgetVPTracker />
+              <RosterTracker />
             </div>
 
-            {/* Sidebar — Battle Log */}
+            {/* Sidebar */}
             <div className="xl:w-[380px] xl:shrink-0">
               <div className="xl:sticky xl:top-4">
                 <BattleLog />
